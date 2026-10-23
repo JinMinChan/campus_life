@@ -1,0 +1,31 @@
+{
+  "observation": "Actual Codex in-app browser; no new behavioral commands during approximately five minutes at 12x",
+  "end": {
+    "day": 3,
+    "clock": "16:47",
+    "speed": 12,
+    "follow": true,
+    "fps": 60,
+    "averageFps": 60,
+    "relationships": 9,
+    "memories": 30,
+    "errors": []
+  },
+  "final_build_observation": {
+    "day": 1,
+    "clock": "19:57",
+    "trait": "social",
+    "averageFps": 58,
+    "errors": []
+  },
+  "reload_verified": {
+    "clock": "19:57",
+    "day": 1,
+    "speed": 12,
+    "paused": true,
+    "follow": true,
+    "friend": "박서연",
+    "sharedMeals": 1
+  },
+  "note": "FPS measured in the narrow in-app browser; automated screenshot runs use software WebGL and are not FPS measurements."
+}

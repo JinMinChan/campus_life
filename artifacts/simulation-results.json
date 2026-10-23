@@ -1,0 +1,241 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "name": "All seven venues are mutually reachable on the safe pedestrian graph",
+      "pass": true,
+      "detail": "2105/2422 reachable nodes"
+    },
+    {
+      "name": "Every used road edge has building clearance, including between endpoints",
+      "pass": true,
+      "detail": "2208 edges checked at intervals ≤0.8 m; 0 unsafe"
+    },
+    {
+      "name": "Terrain interpolation is finite along all traversable nodes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Every destination is outside building footprints",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Hunger takes priority over optional study and socializing",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "A queued meal actually replenishes satiety",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Low energy causes a seated rest",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Rest replenishes energy",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Independent study improves ability and exam preparation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Personality changes an otherwise identical autonomous choice",
+      "pass": true,
+      "detail": "study versus social"
+    },
+    {
+      "name": "Timetable starts an actual class and records attendance",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Version 2 save roundtrip preserves the entire life state exactly",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Restored simulation has the identical future, not just the same position",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Corrupt save rejected without changing the current game: empty position",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Corrupt save rejected without changing the current game: 3D position",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Corrupt save rejected without changing the current game: fractional route index",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Corrupt save rejected without changing the current game: disconnected path",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Corrupt save rejected without changing the current game: invalid relationships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Corrupt save rejected without changing the current game: invalid memories",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Corrupt save rejected without changing the current game: invalid journal",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Corrupt save rejected without changing the current game: unknown invited friend",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Corrupt save rejected without changing the current game: invalid class",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Corrupt save rejected without changing the current game: invalid distance",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Version 1 saves migrate onto the safe graph and continue",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "72-hour run keeps all 18 students finite and needs bounded",
+      "pass": true,
+      "detail": "0 invalid samples"
+    },
+    {
+      "name": "72-hour trajectories never enter a building",
+      "pass": true,
+      "detail": "155,520 position samples; 0 collisions"
+    },
+    {
+      "name": "72-hour walking stays on connected edges and never stalls",
+      "pass": true,
+      "detail": "0 off-route samples; 0 stalled walking samples"
+    },
+    {
+      "name": "Students visibly walk, wait, and perform activities",
+      "pass": true,
+      "detail": "walking, waiting, acting"
+    },
+    {
+      "name": "Autonomous life includes class, food, study, rest, friends, and sleep",
+      "pass": true,
+      "detail": "study, class, social, exercise, rest, eat, sleep"
+    },
+    {
+      "name": "Actual co-presence produces meals, study partners, friends and exam outcomes",
+      "pass": true,
+      "detail": "arrival, meet, late, class, studyTogether, study, rest, meal, friend, exam"
+    },
+    {
+      "name": "Small conversation groups never claim more than two companions",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "At least one friendship remembers repeated shared meals",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Meaningful memories and relationship histories survive saving",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Journal, memories, and recent action history remain bounded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "All students travel and three calendar days elapse",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "A diligent student spends substantially longer studying than an explorer",
+      "pass": true,
+      "detail": "{\"curious\":{\"study\":376,\"class\":109,\"exercise\":179,\"rest\":112,\"eat\":26,\"sleep\":98},\"diligent\":{\"class\":129,\"study\":503,\"exercise\":12,\"eat\":36,\"rest\":71,\"social\":64,\"sleep\":85},\"social\":{\"social\":376,\"class\":100,\"study\":246,\"rest\":62,\"eat\":26,\"sleep\":90}}"
+    },
+    {
+      "name": "A social student spends substantially longer socializing than a planner",
+      "pass": true,
+      "detail": "376 versus 64 min"
+    },
+    {
+      "name": "An explorer spends substantially longer outdoors than a planner",
+      "pass": true,
+      "detail": "179 versus 12 min"
+    },
+    {
+      "name": "Remembered lateness makes the same student leave earlier next time",
+      "pass": true,
+      "detail": "social → class"
+    },
+    {
+      "name": "An established friend changes the next lunch invitation",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "stats": {
+    "graphNodes": 2422,
+    "mainComponent": 2105,
+    "checkedEdges": 2208,
+    "venues": 7,
+    "students": 18,
+    "days": 3,
+    "distance": 480797,
+    "patterns": {
+      "curious": {
+        "study": 376,
+        "class": 109,
+        "exercise": 179,
+        "rest": 112,
+        "eat": 26,
+        "sleep": 98
+      },
+      "diligent": {
+        "class": 129,
+        "study": 503,
+        "exercise": 12,
+        "eat": 36,
+        "rest": 71,
+        "social": 64,
+        "sleep": 85
+      },
+      "social": {
+        "social": 376,
+        "class": 100,
+        "study": 246,
+        "rest": 62,
+        "eat": 26,
+        "sleep": 90
+      }
+    }
+  }
+}

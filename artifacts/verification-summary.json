@@ -1,0 +1,52 @@
+{
+  "timestamp_utc": "2026-10-23T06:38:19.884610+00:00",
+  "browser": "Google Chrome 145.0.7632.109",
+  "renderer": "ANGLE SwiftShader (headless software WebGL)",
+  "url": "http://127.0.0.1:4173",
+  "cases": [
+    {
+      "case": "simulation",
+      "url": "http://127.0.0.1:4173/tests.html",
+      "pass": true,
+      "checks": 40,
+      "failed": [],
+      "wall_seconds": 2.92
+    },
+    {
+      "case": "gameplay",
+      "url": "http://127.0.0.1:4173/?qa=1&fresh=1",
+      "pass": true,
+      "checks": 30,
+      "failed": [],
+      "screenshot": "gameplay-overview.png",
+      "wall_seconds": 6.72
+    },
+    {
+      "case": "closeup",
+      "url": "http://127.0.0.1:4173/?qa=1&fresh=1&view=close",
+      "pass": true,
+      "checks": 30,
+      "failed": [],
+      "screenshot": "gameplay-closeup.png",
+      "wall_seconds": 8.23
+    },
+    {
+      "case": "selection",
+      "url": "http://127.0.0.1:4173/?fresh=1",
+      "pass": true,
+      "checks": 2,
+      "screenshot": "campus-selection.png",
+      "wall_seconds": 5.56
+    },
+    {
+      "case": "mobile",
+      "url": "http://127.0.0.1:4173/?qa=1&fresh=1",
+      "pass": true,
+      "checks": 30,
+      "failed": [],
+      "screenshot": "mobile-layout.png",
+      "wall_seconds": 5.39
+    }
+  ],
+  "pass": true
+}

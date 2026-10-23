@@ -1,0 +1,18 @@
+{
+  "timestamp_utc": "2026-10-23T06:40:29.578292+00:00",
+  "browser": "Google Chrome 145.0.7632.109",
+  "renderer": "ANGLE SwiftShader (headless software WebGL)",
+  "url": "http://127.0.0.1:4173",
+  "cases": [
+    {
+      "case": "story",
+      "url": "http://127.0.0.1:4173/?qa=1&fresh=1&view=story",
+      "pass": true,
+      "checks": 30,
+      "failed": [],
+      "screenshot": "gameplay-story.png",
+      "wall_seconds": 6.03
+    }
+  ],
+  "pass": true
+}

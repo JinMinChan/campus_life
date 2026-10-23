@@ -1,0 +1,178 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "name": "Campus and personality selection starts a new autonomous student",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Student moves along campus path",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "3D student follows simulation position",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Selected walking point outside building footprints",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Walking route reaches destination",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Follow control follows selected student",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Follow is close enough to read student gestures",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Labels toggle off",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Zoom changes camera position",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Rotation changes camera position",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Roster selects and follows another student",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "My student control returns to protagonist",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Speed 1 is selected and indicated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Speed 3 is selected and indicated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Speed 12 is selected and indicated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Resume toggles playback",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Pause freezes playback state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Paused render loop does not advance simulation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Details expand with decision reasons",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Persistent memory view opens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Photo view hides UI",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Photo view returns to controls",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Save restores exact life state, playback and camera within numeric precision",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Browser localStorage persists relationships, memory and position",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Corrupt import is rejected without replacing current game",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Help opens and pauses game",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Data source notes are available",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Overview renders all campus buildings",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "WebGL renders substantial scene",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "No caught runtime errors",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "world": {
+    "webgl": true,
+    "renderer": {
+      "frame": 6,
+      "calls": 59,
+      "triangles": 1041215,
+      "points": 80,
+      "lines": 0
+    },
+    "trees": 620,
+    "buildings": 62,
+    "graphNodes": 2105
+  },
+  "clock": "12:06",
+  "studentPosition": [
+    6.115863413290938,
+    -45.14118095557123
+  ],
+  "render": {
+    "calls": 59,
+    "triangles": 1041215
+  },
+  "errors": []
+}
