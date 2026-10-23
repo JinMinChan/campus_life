@@ -155,7 +155,7 @@
   "world": {
     "webgl": true,
     "renderer": {
-      "frame": 6,
+      "frame": 9,
       "calls": 59,
       "triangles": 1041215,
       "points": 80,

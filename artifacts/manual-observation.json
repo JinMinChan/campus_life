@@ -27,5 +27,13 @@
     "friend": "박서연",
     "sharedMeals": 1
   },
-  "note": "FPS measured in the narrow in-app browser; automated screenshot runs use software WebGL and are not FPS measurements."
+  "note": "FPS measured in the narrow in-app browser; automated screenshot runs use software WebGL and are not FPS measurements.",
+  "public_browser": {
+    "url": "https://jinminchan.github.io/campus_life/",
+    "clock": "09:21",
+    "fps": 60,
+    "averageFps": 58,
+    "consoleWarnings": [],
+    "consoleErrors": []
+  }
 }
