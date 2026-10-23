@@ -1,0 +1,9 @@
+{
+  "name": "hanyang-days",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "python3 scripts/build.py",
+    "test": "node scripts/simulation_test.mjs && node scripts/semester_test.mjs"
+  }
+}

@@ -1,5 +1,6 @@
-import {Simulation,TRAITS,ACTIONS,clamp,pointInPolygon} from './simulation.js?v=3';
-import {CampusWorld} from './world.js?v=3';
+import {Simulation,TRAITS,ACTIONS,clamp,pointInPolygon} from './simulation.js?v=5';
+import {CampusWorld} from './world.js?v=5';
+import {createSemesterUI} from './semester-ui.js?v=5';
 const $=id=>document.getElementById(id);
 const shapes={
   campus:'<path d="M3 21V8l9-5 9 5v13M7 21v-8h10v8M2 21h20M7 8h.01M12 8h.01M17 8h.01M12 3V1"/>',
@@ -26,15 +27,15 @@ const shapes={
 const icon=name=>`<svg viewBox="0 0 24 24" aria-hidden="true">${shapes[name]||shapes.leaf}</svg>`;
 function icons(root=document){root.querySelectorAll('[data-icon]').forEach(el=>el.innerHTML=icon(el.dataset.icon));}
 icons();
-let sim,world,speed=1,paused=false,started=false,chosen='curious',last=performance.now(),uiElapsed=0,saveElapsed=0,toastTimer,infoPreviousPaused=false,setupPreviousPaused=false;
-const SAVE='hanyang-days-v2',LEGACY_SAVE='hanyang-days-v1';
+let sim,world,semesterUI,boundaryKey='',speed=1,paused=false,started=false,chosen='curious',last=performance.now(),uiElapsed=0,saveElapsed=0,toastTimer,infoPreviousPaused=false,setupPreviousPaused=false;
+const SAVE='hanyang-days-v3',LEGACY_SAVES=['hanyang-days-v2','hanyang-days-v1'];
 const params=new URLSearchParams(location.search),qa=params.has('qa'),fresh=params.has('fresh');
 const errors=[],performanceSamples=[];
 let frameCount=0,perfStart=performance.now(),fps=0,lastSaved=null,rosterKey='',journalKey='',saveFailed=false;
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 window.addEventListener('error',e=>errors.push(e.message));
 window.addEventListener('unhandledrejection',e=>errors.push(String(e.reason)));
-const statDefs=[['energy','체력','bolt','#86a172'],['satiety','포만','food','#c3a06a'],['academic','학업','book','#88a6b4'],['mood','기분','heart','#bf958b']];
+const statDefs=[['energy','체력','bolt','#86a172'],['satiety','포만','food','#c3a06a'],['academic','배움','book','#88a6b4'],['mood','기분','heart','#bf958b']];
 $('stats').innerHTML=statDefs.map(([key,label,name,color])=>`<div class="stat" style="--stat-color:${color}" id="stat-${key}"><div class="stat-head"><span>${icon(name)}${label}</span><strong id="value-${key}">0</strong></div><div class="stat-track"><div class="stat-fill" id="fill-${key}"></div></div></div>`).join('');
 $('trait-options').innerHTML=Object.entries(TRAITS).map(([key,t])=>`<button class="trait-option ${key===chosen?'chosen':''}" data-trait="${key}" style="--trait-color:${t.color}" aria-pressed="${key===chosen}">${icon(t.icon)}<span><strong>${t.name}</strong><small>${t.description}</small></span><span class="trait-check">✓</span></button>`).join('');
 document.querySelectorAll('[data-trait]').forEach(button=>button.onclick=()=>{chosen=button.dataset.trait;document.querySelectorAll('[data-trait]').forEach(b=>{b.classList.toggle('chosen',b===button);b.setAttribute('aria-pressed',String(b===button));});});
@@ -43,7 +44,7 @@ function snapshot(){return {...sim.snapshot(),ui:{speed,paused:$('info-dialog').
 function save(manual=false){
   if(!started){if(manual)toast('학생의 하루를 시작하면 저장할 수 있어요.');return false;}
   if(qa){if(manual)toast('검증 화면에서는 기존 저장을 보호해요.');return false;}
-  try{localStorage.setItem(SAVE,JSON.stringify(snapshot()));lastSaved=sim.clock;saveFailed=false;$('save-label').textContent='저장됨';$('save').title=`DAY ${sim.day} ${lastSaved} · 이 브라우저에 저장했어요`;if(manual)toast('친구와 기억까지, 지금의 하루를 저장했어요.');return true;}
+  try{localStorage.setItem(SAVE,JSON.stringify(snapshot()));lastSaved=sim.clock;saveFailed=false;$('save-label').textContent='저장됨';$('save').title=`${sim.semester.week}주차 ${lastSaved} · 이 브라우저에 저장했어요`;if(manual)toast('계획과 성장, 친구와의 기억까지 저장했어요.');return true;}
   catch{if(manual||!saveFailed)toast('브라우저 저장 공간을 사용할 수 없어요. 안내에서 파일로 저장해 주세요.');saveFailed=true;$('save-label').textContent='파일 저장';return false;}
 }
 function restoreSnapshot(saved){
@@ -63,7 +64,7 @@ function friendsFor(s){return Object.entries(s.relationships||{}).map(([id,r])=>
 function updateUI(){
   if(!sim||!world)return;
   const s=sim.current,t=TRAITS[s.trait],action=ACTIONS[s.action]||ACTIONS.rest,walking=s.phase==='walking';
-  $('clock').textContent=sim.clock;$('day').textContent=`가을학기 · DAY ${String(sim.day).padStart(2,'0')}`;
+  $('clock').textContent=sim.clock;$('day').textContent=`가을학기 · ${sim.semester.week}주 ${['월','화','수','목','금','토','일'][(sim.day-1)%7]}요일`;
   const hour=sim.time/60;document.querySelector('.season small').textContent=hour<7?'모두 잠든 고요한 새벽':hour<12?'빛이 스며드는 아침':hour<17?'나무 그늘이 깊어지는 오후':hour<20?'노을이 머무르는 저녁':'작은 불빛이 남은 캠퍼스';
   $('student-name').innerHTML=`${escape(s.name)} <small>1학년</small>`;$('student-role').innerHTML=`<i class="live-dot"></i>${s.id===0?'나의 학생':'같은 캠퍼스의 친구'}`;
   $('student-trait').textContent=t.name;$('portrait').style.setProperty('--student-color',s.color);$('thought').textContent=s.thought||s.reason;
@@ -73,10 +74,10 @@ function updateUI(){
   const companions=(s.companions||[]).map(id=>sim.students[id]?.name).filter(Boolean);
   $('activity-detail').textContent=walking?`${({class:'수업을 들으러',study:'책을 읽으러',eat:'밥을 먹으러',rest:'잠깐 쉬러',social:'친구를 만나러',exercise:'바람을 쐬러',sleep:'잠을 자러'})[s.action]}, 자기만의 속도로`:`${s.destination.name}${companions.length?' · '+companions.slice(0,2).join(', ')+' 함께':''}`;
   $('decision-reason').textContent=`지금의 선택 · ${s.reason}`;
-  for(const [key,label] of statDefs){const value=Math.round(s[key]);$(`value-${key}`).textContent=value;$(`fill-${key}`).style.width=value+'%';$(`stat-${key}`).title=`${label} ${value}/100`;$(`stat-${key}`).setAttribute('aria-label',`${label} ${value}/100`);}
+  for(const [key,label] of statDefs){const value=Math.round(key==='academic'&&s.id===0?sim.semester.growth.knowledge:s[key]);$(`value-${key}`).textContent=value;$(`fill-${key}`).style.width=value+'%';$(`stat-${key}`).title=`${label} ${value}/100`;$(`stat-${key}`).setAttribute('aria-label',`${label} ${value}/100`);}
   $('distance').textContent=s.distance>1000?`${(s.distance/1000).toFixed(1)} km`:`${Math.round(s.distance)} m`;$('completed').textContent=s.completed.length;
   const friends=friendsFor(s),best=friends[0];
-  $('relationship-preview').innerHTML=best?`${icon('people')} <strong>${escape(best.student.name)}</strong> · ${best.affinity>=60?'마음이 통하는 친구':best.affinity>=30?'함께 있으면 편한 사이':'조금씩 익숙해지는 사이'}${best.sharedMeals?` · 함께한 밥 ${best.sharedMeals}번`:''}`:'아직은 낯선 얼굴들. 오늘은 누구와 마주칠까요?';
+  $('relationship-preview').innerHTML=best?`${icon('people')} <strong>${escape(best.student.name)}</strong> · ${escape(sim.relationshipsFor(s).find(r=>r.id===best.student.id)?.label||'조금씩 익숙해지는 사이')}${best.sharedMeals?` · 함께한 밥 ${best.sharedMeals}번`:''}`:'아직은 낯선 얼굴들. 오늘은 누구와 마주칠까요?';
   if(!$('student-details').hidden){
     $('relationships').innerHTML=friends.slice(0,3).map(r=>`<div class="friend-row"><i style="background:${escape(r.student.color)}"></i>${escape(r.student.name)}<small>마주친 날 ${r.encounters||1}번 · 친밀 ${Math.round(r.affinity)}</small></div>`).join('');
     $('student-memories').innerHTML=(s.memories||[]).slice(0,4).map(m=>`<div class="memory-entry"><small>DAY ${m.day} · ${escape(m.time||'')}</small>${escape(m.text)}</div>`).join('');
@@ -85,9 +86,10 @@ function updateUI(){
   const logs=sim.logs.filter(l=>l.student===s.id).slice(0,3),memories=(s.memories||[]).slice(0,8);
   const nextJournal=JSON.stringify([s.id,logs,memories]);
   if(journalKey!==nextJournal){journalKey=nextJournal;$('diary-entries').innerHTML=logs.map(l=>`<div class="diary-entry"><time class="diary-time">${escape(l.time)}</time><i class="diary-dot"></i><p>${escape(l.text)}</p></div>`).join('');$('memory-entries').innerHTML=memories.length?memories.map(m=>`<div class="memory-entry"><small>DAY ${m.day} · ${escape(m.time||'')}</small>${escape(m.text)}</div>`).join(''):'<p class="memory-entry">함께한 식사와 수업, 작지만 오래 남을 순간들이 이곳에 쌓여요.</p>';}
-  $('population').textContent=paused?'잠시 멈춘 캠퍼스의 시간':`${sim.students.length}명의 작은 하루가 흐릅니다`;
+  $('population').textContent=sim.semesterBlocksTime?'다음 이야기를 함께 골라 주세요':paused?'잠시 멈춘 캠퍼스의 시간':`${sim.students.length}명의 작은 하루가 흐릅니다`;
   $('follow').setAttribute('aria-pressed',String(world.follow));$('follow').setAttribute('aria-label',world.follow?'학생 추적 멈추기':'이 학생 따라가기');$('follow').title=world.follow?'따라가는 중 · F로 해제':'가까이 따라가기 · F';
   if(!$('roster').hidden)updateRoster();
+  if(started&&$('setup').hidden)semesterUI?.update();
 }
 function updateRoster(){
   const key=sim.students.map(s=>`${s.id}-${s.phase}-${s.action}`).join(',')+sim.selected;if(key===rosterKey)return;rosterKey=key;
@@ -100,7 +102,7 @@ function closeSetup(){if(!started)return;$('setup').hidden=true;document.body.cl
 $('next-step').onclick=$('choose-campus').onclick=()=>{$('campus-step').hidden=true;$('trait-step').hidden=false;$('setup-step').textContent='THE FIRST PAGE · 하늘의 첫날';};
 $('back-step').onclick=()=>{$('campus-step').hidden=false;$('trait-step').hidden=true;$('setup-step').textContent='A LITTLE CAMPUS LIFE';};
 $('setup-close').onclick=closeSetup;
-$('start').onclick=()=>{sim=new Simulation(sim.data,chosen);world.setSimulation(sim);started=true;paused=false;speed=1;journalKey='';rosterKey='';document.querySelectorAll('.speed').forEach(b=>{b.classList.toggle('active',b.dataset.speed==='1');b.setAttribute('aria-pressed',String(b.dataset.speed==='1'));});$('setup').hidden=true;document.body.classList.remove('is-setting');world.resetCamera();updatePause();updateUI();save();toast('하늘의 첫날. 이제 하루가 스스로 흘러갑니다.');};
+$('start').onclick=()=>{sim=new Simulation(sim.data,chosen);world.setSimulation(sim);started=true;paused=false;speed=1;journalKey='';rosterKey='';document.querySelectorAll('.speed').forEach(b=>{b.classList.toggle('active',b.dataset.speed==='1');b.setAttribute('aria-pressed',String(b.dataset.speed==='1'));});$('setup').hidden=true;document.body.classList.remove('is-setting');world.resetCamera();updatePause();updateUI();save();toast('첫 주의 계획을 골라 주세요. 하늘의 한 학기가 시작됩니다.');};
 function updatePause(){$('pause').innerHTML=icon(paused?'play':'pause');$('pause').setAttribute('aria-label',paused?'계속 재생':'일시정지');$('pause').setAttribute('aria-pressed',String(paused));}
 $('pause').onclick=()=>{if(!started)return;paused=!paused;updatePause();updateUI();};
 document.querySelectorAll('.speed').forEach(b=>b.onclick=()=>{speed=Number(b.dataset.speed);document.querySelectorAll('.speed').forEach(o=>{o.classList.toggle('active',o===b);o.setAttribute('aria-pressed',String(o===b));});toast(`${speed}배속 · 현실 1초에 게임 ${speed}분`);});
@@ -121,29 +123,32 @@ function showInfo(){infoPreviousPaused=paused;paused=true;updatePause();$('info-
 $('help').onclick=$('sources').onclick=showInfo;$('close-info').onclick=()=>$('info-dialog').close();
 $('info-dialog').addEventListener('close',()=>{if($('setup').hidden)paused=infoPreviousPaused;updatePause();});
 $('save').onclick=()=>save(true);
-$('export-save').onclick=()=>{if(!started){toast('먼저 학생의 하루를 시작해 주세요.');return;}const contents=JSON.stringify(snapshot(),null,2),url=URL.createObjectURL(new Blob([contents],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=`hanyang-day-${sim.day}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('친구와 기억을 파일로 간직했어요.');};
+$('export-save').onclick=()=>{if(!started){toast('먼저 학생의 하루를 시작해 주세요.');return;}const contents=JSON.stringify(snapshot(),null,2),url=URL.createObjectURL(new Blob([contents],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=`hanyang-semester-week-${sim.semester.week}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('친구와 기억을 파일로 간직했어요.');};
 $('import-save').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>3*1024*1024)throw new Error('File too large');const saved=JSON.parse(await file.text());restoreSnapshot(saved);infoPreviousPaused=paused;$('info-dialog').close();save();toast('저장 파일의 학생과 기억을 다시 만났어요.');}catch{toast('올바른 한양의 하루 저장 파일이 아니에요. 현재 하루는 유지됩니다.');}e.target.value='';});
-document.addEventListener('keydown',e=>{if(e.code==='Escape'){photo(false);return;}if(!started||!$('setup').hidden||$('info-dialog').open||['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;if(e.code==='Space'){if(['BUTTON','A'].includes(document.activeElement.tagName))return;e.preventDefault();$('pause').click();}else if(e.code==='KeyF')$('follow').click();else if(e.code==='KeyH')$('reset-camera').click();else if(e.code==='KeyQ')world.rotate(-.15);else if(e.code==='KeyE')world.rotate(.15);else if(['Equal','NumpadAdd'].includes(e.code))world.zoom(.9);else if(['Minus','NumpadSubtract'].includes(e.code))world.zoom(1.1);});
+document.addEventListener('keydown',e=>{if(e.code==='Escape'){photo(false);return;}if(!started||!$('setup').hidden||$('info-dialog').open||semesterUI?.isOpen||['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;if(e.code==='Space'){if(['BUTTON','A'].includes(document.activeElement.tagName))return;e.preventDefault();$('pause').click();}else if(e.code==='KeyF')$('follow').click();else if(e.code==='KeyH')$('reset-camera').click();else if(e.code==='KeyQ')world.rotate(-.15);else if(e.code==='KeyE')world.rotate(.15);else if(['Equal','NumpadAdd'].includes(e.code))world.zoom(.9);else if(['Minus','NumpadSubtract'].includes(e.code))world.zoom(1.1);});
 window.addEventListener('beforeunload',()=>save());
 document.addEventListener('visibilitychange',()=>{if(document.hidden)save();last=performance.now();perfStart=last;frameCount=0;});
 function frame(now){
   const dt=Math.min((now-last)/1000,.15);last=now;
-  try{if(started&&!paused&&!document.hidden)sim.step(dt*speed);world.render(now/1000);}catch(error){paused=true;updatePause();errors.push(String(error));console.error(error);toast('하루를 잠시 멈췄어요. 저장 파일을 내보내고 새로고침해 주세요.');return;}
+  try{if(started&&!paused&&!semesterUI?.isOpen&&!document.hidden)sim.step(dt*speed);world.render(now/1000);}catch(error){paused=true;updatePause();errors.push(String(error));console.error(error);toast('하루를 잠시 멈췄어요. 저장 파일을 내보내고 새로고침해 주세요.');return;}
+  const currentBoundary=started?`${sim.semester.week}:${sim.semester.phase}:${sim.semester.decision?.id||''}`:'';
+  if(currentBoundary!==boundaryKey){boundaryKey=currentBoundary;updateUI();save();}
   uiElapsed+=dt;saveElapsed+=dt;frameCount++;
   if(uiElapsed>.35){updateUI();uiElapsed=0;}
   if(saveElapsed>6){save();saveElapsed=0;}
-  if(now-perfStart>=2000){fps=Math.round(frameCount*1000/(now-perfStart));performanceSamples.push(fps);if(performanceSamples.length>90)performanceSamples.shift();perfStart=now;frameCount=0;$('runtime-diagnostics').textContent=JSON.stringify({version:2,ready:true,clock:sim.clock,day:sim.day,speed,paused,selected:sim.selected,follow:world.follow,action:sim.current.action,phase:sim.current.phase,position:sim.current.position,fps,averageFps:Math.round(performanceSamples.reduce((a,b)=>a+b,0)/performanceSamples.length),world:world.stats,renderCalls:world.renderer.info.render.calls,triangles:world.renderer.info.render.triangles,errors,lastSaved,relationships:friendsFor(sim.current).length,memories:sim.current.memories?.length||0,story:sim.logs.filter(l=>l.student===sim.selected).slice(0,5)});}
+  if(now-perfStart>=2000){fps=Math.round(frameCount*1000/(now-perfStart));performanceSamples.push(fps);if(performanceSamples.length>90)performanceSamples.shift();perfStart=now;frameCount=0;$('runtime-diagnostics').textContent=JSON.stringify({version:3,ready:true,semester:{week:sim.semester.week,dayOfWeek:(sim.day-1)%7,phase:sim.semester.phase,decision:sim.semester.decision?.id||null,money:sim.semester.money,growth:sim.semester.growth,history:sim.semester.history.length},clock:sim.clock,day:sim.day,speed,paused,selected:sim.selected,follow:world.follow,action:sim.current.action,phase:sim.current.phase,position:sim.current.position,fps,averageFps:Math.round(performanceSamples.reduce((a,b)=>a+b,0)/performanceSamples.length),world:world.stats,renderCalls:world.renderer.info.render.calls,triangles:world.renderer.info.render.triangles,errors,lastSaved,relationships:friendsFor(sim.current).length,memories:sim.current.memories?.length||0,story:sim.logs.filter(l=>l.student===sim.selected).slice(0,5)});}
   requestAnimationFrame(frame);
 }
 async function boot(){
   try{
     const response=await fetch('./public/data/campus.json');if(!response.ok)throw new Error('캠퍼스 데이터 읽기 실패');const data=await response.json();sim=new Simulation(data);world=new CampusWorld($('world'),data,sim,selectStudent);
+    semesterUI=createSemesterUI({getSim:()=>sim,onChange:()=>{save();updateUI();},onSkip:()=>{if(!started||sim.semesterBlocksTime)return;const before=(sim.day-1)*1440+sim.time;sim.step(45);const elapsed=Math.round((sim.day-1)*1440+sim.time-before);updateUI();save();toast(`${elapsed}분의 생활을 이어 보았어요. 중요한 순간에는 멈춰요.`);},onExport:()=>$('export-save').click(),onOpen:()=>{},onClose:()=>{last=performance.now();}});
     $('world').addEventListener('camera-manual',()=>{if(started)updateUI();});
     $('world').addEventListener('render-lost',()=>{paused=true;updatePause();toast('3D 연결이 끊겼어요. 저장한 뒤 페이지를 새로고침해 주세요.');});
     $('data-summary').textContent=`실제 건물 ${data.buildings.length}개 · 길 ${data.roads.length}개 · ${world.treeCount}그루의 나무`;$('data-notes').innerHTML=data.meta.notes.map(n=>`<li>${escape(n)}</li>`).join('');
-    if(!fresh&&!qa){try{const raw=localStorage.getItem(SAVE)||localStorage.getItem(LEGACY_SAVE);if(raw){restoreSnapshot(JSON.parse(raw));toast('그날의 걸음과 친구들을 이어갑니다.');}}catch{toast('저장 파일을 읽지 못했어요. 새 하루를 열되 기존 파일은 보관합니다.');}}
+    if(!fresh&&!qa){try{const raw=localStorage.getItem(SAVE)||LEGACY_SAVES.map(k=>localStorage.getItem(k)).find(Boolean);if(raw){restoreSnapshot(JSON.parse(raw));toast('그날의 걸음과 친구들을 이어갑니다.');}}catch{toast('저장 파일을 읽지 못했어요. 새 하루를 열되 기존 파일은 보관합니다.');}}
     $('loading').hidden=true;updateUI();if(!started)showSetup();else updatePause();world.render();last=performance.now();requestAnimationFrame(frame);document.body.dataset.ready='true';
-    if(qa){const {runQA}=await import('./qa.js');await runQA({get sim(){return sim;},get world(){return world;},get state(){return {speed,paused,started,errors,performanceSamples};},snapshot,restoreSnapshot,updateUI,params,toast:()=>{clearTimeout(toastTimer);$('toast').hidden=true;},setPaused(value){paused=value;updatePause();}});}
+    if(qa){const {runQA}=await import('./qa.js?v=5');await runQA({get sim(){return sim;},get world(){return world;},get semesterUI(){return semesterUI;},get state(){return {speed,paused,started,errors,performanceSamples};},snapshot,restoreSnapshot,updateUI,params,toast:()=>{clearTimeout(toastTimer);$('toast').hidden=true;},setPaused(value){paused=value;updatePause();}});}
   }catch(error){console.error(error);errors.push(String(error));$('loading').hidden=false;$('loading').innerHTML=`<div class="error-card"><h2>캠퍼스를 열지 못했어요</h2><p>WebGL을 지원하는 최신 브라우저에서 다시 열어 주세요.</p><p>${escape(error)}</p><a href="./">다시 열기 →</a></div>`;document.body.dataset.ready='error';}
 }
 boot();

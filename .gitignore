@@ -6,3 +6,7 @@ artifacts/reference-*
 .run/
 
 dist/
+artifacts/**/*-dom.html
+artifacts/**/*-browser.log
+artifacts/semester-dev/
+artifacts/semester-preview/

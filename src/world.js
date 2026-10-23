@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import {OrbitControls} from '../public/vendor/OrbitControls.js';
-import {terrainHeight,pointInPolygon,distance,ACTIONS} from './simulation.js';
+import {terrainHeight,pointInPolygon,distance,ACTIONS} from './simulation.js?v=5';
 
 // All campus architecture is original procedural geometry. Surveyed footprints,
 // roads and heights are kept in campus.json; small architectural details are an

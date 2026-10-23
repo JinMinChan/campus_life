@@ -25,6 +25,13 @@ jobs:
     steps:
       - name: Check out source
         uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify campus paths and all 112 semester days
+        run: |
+          node scripts/simulation_test.mjs
+          node scripts/semester_test.mjs
       - name: Build and validate static assets
         run: python3 scripts/build.py
       - name: Configure GitHub Pages

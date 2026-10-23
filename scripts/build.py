@@ -16,14 +16,16 @@ for name in ('src', 'public'):
 for name in ('index.html', 'tests.html', 'LICENSE', 'THIRD_PARTY_NOTICES.md'):
     shutil.copy2(ROOT / name, DEST / name)
 (DEST / 'scripts').mkdir(exist_ok=True)
-shutil.copy2(ROOT / 'scripts/simulation_checks.mjs', DEST / 'scripts/simulation_checks.mjs')
+for name in ('simulation_checks.mjs', 'semester_checks.mjs'):
+    shutil.copy2(ROOT / 'scripts' / name, DEST / 'scripts' / name)
 (DEST / '.nojekyll').write_text('', encoding='utf-8')
 
 required = (
     'index.html', 'src/main.js', 'src/world.js', 'src/simulation.js',
     'src/style.css', 'public/vendor/three.module.js',
     'public/vendor/OrbitControls.js', 'public/data/campus.json',
-    'src/qa.js', 'scripts/simulation_checks.mjs',
+    'src/qa.js', 'scripts/simulation_checks.mjs', 'src/semester.js',
+    'src/semester-ui.js', 'src/semester.css', 'scripts/semester_checks.mjs',
 )
 for name in required:
     path = DEST / name
@@ -55,7 +57,7 @@ assert data['roads'] and data['terrain']['heights'], 'Campus roads or terrain ar
 # Screenshots, raw map data, and local server state are not published.
 assets = [p for name in ('src', 'public') for p in (DEST / name).rglob('*') if p.is_file()]
 assets += [DEST / name for name in ('index.html', 'tests.html', 'LICENSE', 'THIRD_PARTY_NOTICES.md', '.nojekyll')]
-assets.append(DEST / 'scripts/simulation_checks.mjs')
+assets += [DEST / 'scripts' / name for name in ('simulation_checks.mjs', 'semester_checks.mjs')]
 manifest = {
     'schema': 1,
     'files': {str(p.relative_to(DEST)): sha256(p.read_bytes()).hexdigest() for p in sorted(assets)},

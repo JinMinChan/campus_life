@@ -1,8 +1,9 @@
-<!doctype html><meta charset="utf-8"><title>Hanyang Days — life simulation verification</title>
+<!doctype html><meta charset="utf-8"><title>Hanyang Days — semester verification</title>
 <style>body{font:14px/1.6 monospace;background:#f1f2e9;padding:30px;color:#36523e}pre{white-space:pre-wrap}</style>
-<h1>한양의 하루 · 생활 시뮬레이션 검증</h1><pre id="results">실제 캠퍼스 데이터로 72시간의 생활을 검증하고 있어요…</pre>
+<h1>한양의 하루 · 16주 생활 시뮬레이션 검증</h1><pre id="results">실제 캠퍼스 데이터로 길찾기와 112일의 학기, 관계와 저장을 검증하고 있어요…</pre>
 <script type="module">
 import {verifySimulation} from './scripts/simulation_checks.mjs';
-try{const data=await(await fetch('./public/data/campus.json')).json();const report=verifySimulation(data);document.getElementById('results').textContent=JSON.stringify(report,null,2);document.body.dataset.result=report.pass?'pass':'fail';}
+import {verifySemester} from './scripts/semester_checks.mjs';
+try{const data=await(await fetch('./public/data/campus.json')).json();const geometry=verifySimulation(data),semester=verifySemester(data);const report={pass:geometry.pass&&semester.pass,checks:[...geometry.checks,...semester.checks],geometry:geometry.stats,semester:semester.stats};document.getElementById('results').textContent=JSON.stringify(report,null,2);document.body.dataset.result=report.pass?'pass':'fail';}
 catch(error){document.getElementById('results').textContent=JSON.stringify({pass:false,error:String(error),stack:error.stack});document.body.dataset.result='fail';}
 </script>
