@@ -1,0 +1,112 @@
+{
+  "pass": true,
+  "before": {
+    "day": "가을학기 · 1주 월요일",
+    "clock": "18:23",
+    "student": "나의 학생\n자세히\n＋\n✦\n김하늘 1학년\n호기심 많은 탐구가\n“\n\n놓친 수업 내용을 백남에서 다시 읽어 봐야겠어.\n\n지금 이 순간\n노트를 펼쳐 읽는 중\n백남학술정보관 · 송수빈 함께\n체력\n91\n포만\n39\n배움\n15\n기분\n100\n 이도윤 · 함께 다니는 친구 · 함께한 밥 3번",
+    "speed12": "true",
+    "paused": "true",
+    "follow": "true"
+  },
+  "after": {
+    "day": "가을학기 · 1주 월요일",
+    "clock": "18:23",
+    "student": "나의 학생\n자세히\n＋\n✦\n김하늘 1학년\n호기심 많은 탐구가\n“\n\n놓친 수업 내용을 백남에서 다시 읽어 봐야겠어.\n\n지금 이 순간\n노트를 펼쳐 읽는 중\n백남학술정보관 · 송수빈 함께\n체력\n91\n포만\n39\n배움\n15\n기분\n100\n 이도윤 · 함께 다니는 친구 · 함께한 밥 3번",
+    "speed12": "true",
+    "paused": "true",
+    "follow": "true"
+  },
+  "console": [],
+  "diagnostics": {
+    "version": 3,
+    "ready": true,
+    "semester": {
+      "week": 1,
+      "dayOfWeek": 0,
+      "phase": "living",
+      "decision": null,
+      "money": 145500,
+      "growth": {
+        "knowledge": 15.401384839999565,
+        "expression": 12.179990399999962,
+        "independence": 10
+      },
+      "history": 0
+    },
+    "clock": "18:23",
+    "day": 1,
+    "speed": 12,
+    "paused": true,
+    "selected": 0,
+    "follow": true,
+    "action": "study",
+    "phase": "acting",
+    "position": [
+      6.115863413290938,
+      -45.14118095557123
+    ],
+    "fps": 60,
+    "averageFps": 53,
+    "world": {
+      "webgl": true,
+      "renderer": {
+        "frame": 644,
+        "calls": 41,
+        "triangles": 1037535,
+        "points": 80,
+        "lines": 0
+      },
+      "trees": 620,
+      "buildings": 62,
+      "graphNodes": 2105
+    },
+    "renderCalls": 41,
+    "triangles": 1037535,
+    "errors": [],
+    "lastSaved": "18:23",
+    "relationships": 12,
+    "memories": 30,
+    "story": [
+      {
+        "student": 0,
+        "time": "18:20",
+        "text": "송수빈과 처음 인사를 나눴어요. 다음에는 먼저 알아볼 수 있겠어요.",
+        "icon": "people",
+        "day": 1,
+        "kind": "meet"
+      },
+      {
+        "student": 0,
+        "time": "17:54",
+        "text": "백남학술정보관에 도착했어요. 노트를 펼쳐 읽는 중.",
+        "icon": "book",
+        "day": 1,
+        "kind": "activity"
+      },
+      {
+        "student": 0,
+        "time": "17:53",
+        "text": "한서아와 백남에서 노트를 맞춰 봤어요. 함께 푼 내용은 더 오래 기억나요.",
+        "icon": "book",
+        "day": 1,
+        "kind": "studyTogether"
+      },
+      {
+        "student": 0,
+        "time": "17:53",
+        "text": "정지우와 백남에서 노트를 맞춰 봤어요. 함께 푼 내용은 더 오래 기억나요.",
+        "icon": "book",
+        "day": 1,
+        "kind": "studyTogether"
+      },
+      {
+        "student": 0,
+        "time": "17:44",
+        "text": "조다은과 백남에서 노트를 맞춰 봤어요. 함께 푼 내용은 더 오래 기억나요.",
+        "icon": "book",
+        "day": 1,
+        "kind": "studyTogether"
+      }
+    ]
+  }
+}

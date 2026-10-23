@@ -1,0 +1,125 @@
+{
+  "timestamp_utc": "2026-10-23T07:43:16.001809+00:00",
+  "url": "https://jinminchan.github.io/campus_life/",
+  "commit": "ebc1cc7c8f2530813826b3245e0a9795fd5e6946",
+  "action": "https://github.com/JinMinChan/campus_life/actions/runs/39919201622",
+  "http": 200,
+  "manifest_matches": true,
+  "excluded": [
+    {
+      "file": ".nojekyll",
+      "reason": "Build metadata; the public endpoint returns HTTP 404. Not loaded by the game."
+    }
+  ],
+  "files": [
+    {
+      "file": "LICENSE",
+      "http": 200,
+      "sha256": "2500db5f10f33c08331f80db771d16a4454c941f47ca05c649ee83266c14de24",
+      "pass": true
+    },
+    {
+      "file": "THIRD_PARTY_NOTICES.md",
+      "http": 200,
+      "sha256": "08f0c2b8ec2ebd8245b01dcaafacac73f03d5ee1a03f91157d989fc2416b807d",
+      "pass": true
+    },
+    {
+      "file": "index.html",
+      "http": 200,
+      "sha256": "d5211f4bceeb09985b2655dd04ad68c88d8cc28a6677e82b8f66dab360977661",
+      "pass": true
+    },
+    {
+      "file": "public/data/campus.json",
+      "http": 200,
+      "sha256": "0ae90e1ce6977e8332e1dbd4f14b1b34cbce20a744551c1f9efe9f5c130c78ee",
+      "pass": true
+    },
+    {
+      "file": "public/vendor/OrbitControls.js",
+      "http": 200,
+      "sha256": "80efaadea4f8a636a65fb0bd08bfef62f3d93a0bb94e2e7500f23176c5c07f4e",
+      "pass": true
+    },
+    {
+      "file": "public/vendor/THREE-LICENSE.txt",
+      "http": 200,
+      "sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454",
+      "pass": true
+    },
+    {
+      "file": "public/vendor/three.module.js",
+      "http": 200,
+      "sha256": "ce1fa418de16a19495a9f72495580e3015d7745c296d3ce0485897f902ddedfb",
+      "pass": true
+    },
+    {
+      "file": "scripts/semester_checks.mjs",
+      "http": 200,
+      "sha256": "f85377f0a6cfef5b9857d09398c576fe1efad7e321c1e8ee30b3d81edad4dc41",
+      "pass": true
+    },
+    {
+      "file": "scripts/simulation_checks.mjs",
+      "http": 200,
+      "sha256": "0a6db87aa4716c09b5bd88735e69021f6d9980bf1cedc7028d07bb536eb515c0",
+      "pass": true
+    },
+    {
+      "file": "src/main.js",
+      "http": 200,
+      "sha256": "b0a9ec7965120ae80d1393e96792bef86d3b113c8a73d563dcba142e8c4baa48",
+      "pass": true
+    },
+    {
+      "file": "src/qa.js",
+      "http": 200,
+      "sha256": "4ae0c26cc698982e47996745ef93fcb5bedef58a641a211568b5e65032583e5c",
+      "pass": true
+    },
+    {
+      "file": "src/semester-ui.js",
+      "http": 200,
+      "sha256": "4c672b5df21aa5d6c45d3bd6ab5fa555a60836c316a68ea2b274acaf437f5b66",
+      "pass": true
+    },
+    {
+      "file": "src/semester.css",
+      "http": 200,
+      "sha256": "15d594bf2e174916cd7730ed8cbf3b6ad4cf0b33fc38d587c7486e89eb99fd82",
+      "pass": true
+    },
+    {
+      "file": "src/semester.js",
+      "http": 200,
+      "sha256": "b9b7369c6ae96ab5b8a43400144db2933a43e31d0137c7f4b402afee64e86e81",
+      "pass": true
+    },
+    {
+      "file": "src/simulation.js",
+      "http": 200,
+      "sha256": "12cf7d0010c801d064b36e0a83d039c79360ec0e068c72911ffd216d57cfc97e",
+      "pass": true
+    },
+    {
+      "file": "src/style.css",
+      "http": 200,
+      "sha256": "7632679fa74e08708c9f2cab03c147e8fc2c54cd7518eb89b372f096b123299c",
+      "pass": true
+    },
+    {
+      "file": "src/world.js",
+      "http": 200,
+      "sha256": "662c4e22f55f313e6e8c894cb20ca8e81c85c386d8ab5fa7e92e6cc39ec07c09",
+      "pass": true
+    },
+    {
+      "file": "tests.html",
+      "http": 200,
+      "sha256": "f21d3ac474db9bd18b2a06d11159c2363284f12bdead6a1c8cdbdd658b3d219e",
+      "pass": true
+    }
+  ],
+  "pass": true
+}

@@ -1,0 +1,97 @@
+{
+  "timestamp_utc": "2026-10-23T07:42:48.110477+00:00",
+  "browser": "Google Chrome 145.0.7632.109",
+  "renderer": "ANGLE SwiftShader (headless software WebGL)",
+  "url": "https://jinminchan.github.io/campus_life",
+  "cases": [
+    {
+      "case": "simulation",
+      "url": "https://jinminchan.github.io/campus_life/tests.html",
+      "pass": true,
+      "checks": 129,
+      "failed": [],
+      "wall_seconds": 69.56
+    },
+    {
+      "case": "gameplay",
+      "url": "https://jinminchan.github.io/campus_life/?qa=1&fresh=1",
+      "pass": true,
+      "checks": 39,
+      "failed": [],
+      "screenshot": "gameplay-overview.png",
+      "wall_seconds": 9.5
+    },
+    {
+      "case": "closeup",
+      "url": "https://jinminchan.github.io/campus_life/?qa=1&fresh=1&view=close",
+      "pass": true,
+      "checks": 39,
+      "failed": [],
+      "screenshot": "gameplay-closeup.png",
+      "wall_seconds": 6.88
+    },
+    {
+      "case": "story",
+      "url": "https://jinminchan.github.io/campus_life/?qa=1&fresh=1&view=story",
+      "pass": true,
+      "checks": 39,
+      "failed": [],
+      "screenshot": "gameplay-story.png",
+      "wall_seconds": 6.53
+    },
+    {
+      "case": "planner",
+      "url": "https://jinminchan.github.io/campus_life/?qa=1&fresh=1&view=planner",
+      "pass": true,
+      "checks": 39,
+      "failed": [],
+      "screenshot": "semester-planner.png",
+      "wall_seconds": 7.25
+    },
+    {
+      "case": "semester",
+      "url": "https://jinminchan.github.io/campus_life/?qa=1&fresh=1&view=semester",
+      "pass": true,
+      "checks": 42,
+      "failed": [],
+      "screenshot": "semester-ending.png",
+      "wall_seconds": 19.31
+    },
+    {
+      "case": "relationships",
+      "url": "https://jinminchan.github.io/campus_life/?qa=1&fresh=1&view=relationships",
+      "pass": true,
+      "checks": 44,
+      "failed": [],
+      "screenshot": "semester-relationships.png",
+      "wall_seconds": 17.79
+    },
+    {
+      "case": "mobile-planner",
+      "url": "https://jinminchan.github.io/campus_life/?qa=1&fresh=1&view=planner",
+      "pass": true,
+      "checks": 39,
+      "failed": [],
+      "screenshot": "semester-mobile-planner.png",
+      "wall_seconds": 6.23
+    },
+    {
+      "case": "selection",
+      "url": "https://jinminchan.github.io/campus_life/?fresh=1",
+      "pass": true,
+      "checks": 2,
+      "screenshot": "campus-selection.png",
+      "wall_seconds": 5.26
+    },
+    {
+      "case": "mobile",
+      "url": "https://jinminchan.github.io/campus_life/?qa=1&fresh=1",
+      "pass": true,
+      "checks": 39,
+      "failed": [],
+      "screenshot": "mobile-layout.png",
+      "wall_seconds": 5.78
+    }
+  ],
+  "pass": true
+}
