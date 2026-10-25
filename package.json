@@ -4,6 +4,6 @@
   "type": "module",
   "scripts": {
     "build": "python3 scripts/build.py",
-    "test": "node scripts/simulation_test.mjs && node scripts/semester_test.mjs"
+    "test": "node scripts/simulation_test.mjs && node scripts/semester_test.mjs && node scripts/observation_test.mjs"
   }
 }

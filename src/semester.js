@@ -1,3 +1,4 @@
+import {createObservation,observationView,refreshObservation,buildObservationPlan,chooseObservationDecision,observationTaskReason,encourageObservation,applyObservationEncouragement,observeActivity,observeFinishedTask,validateObservation} from './observation.js?v=6';
 /** Deterministic semester progression. Every result is earned by an observed action. */
 export const PLAN_ACTIVITIES = {
   study:{id:'study',label:'깊이 공부하기',description:'백남에서 수업을 복습하고 과제를 쌓아요.',icon:'book',venue:'library',action:'study',duration:45},
@@ -31,7 +32,7 @@ const BASE_REL={trust:8,friendship:5,romance:0,status:'acquaintance',sharedActiv
 
 export function createSemester(trait='curious'){
   const plan=trait==='diligent'?['study','study','rest']:trait==='social'?['club','friend','rest']:['study','friend','rest'];
-  return{version:1,week:1,dayOfWeek:0,phase:'planning',plan,days:Array.from({length:7},()=>[...plan]),focusId:1,goal:trait==='social'?'friendship':'scholar',growth:{knowledge:15,expression:12,independence:10},money:80000,stress:18,courses:[{id:'foundation',title:'창의적 공학설계',knowledge:18,attendance:0,attendedMinutes:0,midterm:null,final:null,project:0,grade:null},{id:'seminar',title:'사고와 표현',knowledge:18,attendance:0,attendedMinutes:0,midterm:null,final:null,project:0,grade:null}],history:[],decision:null,report:null,ending:null,commitments:[],decisionDone:false,choices:[],ledger:[],flags:{club:false,projectRole:'support'},weekStart:null,weekStats:{classMinutes:[0,0],studyMinutes:0,workMinutes:0,sharedMinutes:{},meals:0,completed:[],missed:[],highlights:[]},pendingConversation:null,migrated:false};
+  return{version:1,week:1,dayOfWeek:0,phase:'planning',plan,days:Array.from({length:7},()=>[...plan]),focusId:1,goal:trait==='social'?'friendship':'scholar',growth:{knowledge:15,expression:12,independence:10},money:80000,stress:18,courses:[{id:'foundation',title:'창의적 공학설계',knowledge:18,attendance:0,attendedMinutes:0,midterm:null,final:null,project:0,grade:null},{id:'seminar',title:'사고와 표현',knowledge:18,attendance:0,attendedMinutes:0,midterm:null,final:null,project:0,grade:null}],history:[],decision:null,report:null,ending:null,commitments:[],decisionDone:false,choices:[],ledger:[],flags:{club:false,projectRole:'support'},weekStart:null,weekStats:{classMinutes:[0,0],studyMinutes:0,workMinutes:0,sharedMinutes:{},meals:0,completed:[],missed:[],highlights:[]},pendingConversation:null,migrated:false,observation:null};
 }
 export function ensureSemesterRelationships(sim){
   for(const npc of NPCS){if(!person(sim,npc.id))continue;const r=sim.relationship(mine(sim),npc.id);for(const [k,v]of Object.entries(BASE_REL))if(r[k]===undefined)r[k]=v;const reverse=sim.relationship(person(sim,npc.id),0);for(const [k,v]of Object.entries(BASE_REL))if(reverse[k]===undefined)reverse[k]=v;}
@@ -47,10 +48,32 @@ export function semesterView(sim){
   ensureSemesterRelationships(sim);const st=sim.semester;const view=copy(st);
   view.calendar=SEMESTER_CALENDAR[st.week-1];view.calendarAll=SEMESTER_CALENDAR;view.dayOfWeek=Math.max(0,Math.min(6,sim.day-(st.week-1)*7-1));view.dayLabel=WEEKDAYS[view.dayOfWeek];view.absoluteDay=sim.day;view.totalDays=112;view.clock=sim.clock;view.weekProgress=Math.min(1,(view.dayOfWeek+(sim.time/1440))/7);
   view.allCommitments=view.commitments;view.commitments=view.commitments.filter(c=>c.day===sim.day);view.npcs=NPCS.map(n=>{const r=copy(relation(sim,n.id));return{...n,relationship:r,stage:r.status,label:relationLabel(r)};});
-  view.courses=view.courses.map((c,i)=>{const sessions=(st.week-1)*5+Math.min(view.dayOfWeek,5)+(view.dayOfWeek<5&&sim.time>=[540,780][i]?1:0);return{...c,attendance:sessions?bound(c.attendedMinutes/(sessions*50)*100):0,grade:st.phase==='complete'?courseGrade(c):c.grade};});view.goalInfo=GOALS[st.goal];view.isWeekend=view.dayOfWeek>=5;
+  view.courses=view.courses.map((c,i)=>{const sessions=(st.week-1)*5+Math.min(view.dayOfWeek,5)+(view.dayOfWeek<5&&sim.time>=[540,780][i]?1:0);return{...c,attendance:sessions?bound(c.attendedMinutes/(sessions*50)*100):0,grade:st.phase==='complete'?courseGrade(c):c.grade};});view.goalInfo=GOALS[st.goal];view.isWeekend=view.dayOfWeek>=5;view.observation=observationView(sim);
   return view;
 }
-export function semesterBlocksTime(sim){return sim.semester.phase!=='living'||Boolean(sim.semester.decision);}
+export function semesterBlocksTime(sim){return sim.semester.observation?.enabled?sim.semester.phase==='complete':sim.semester.phase!=='living'||Boolean(sim.semester.decision);}
+export function startObservation(sim,options={}){
+  const st=sim.semester;if(st.observation?.enabled){resumeObservation(sim);return semesterView(sim);}
+  const goal=options.goal??st.goal,focusId=options.focusId??st.focusId;
+  if(!Object.hasOwn(GOALS,goal)||!NPCS.some(n=>n.id===focusId))throw new Error('마음에 둔 바람과 친구를 다시 골라 주세요.');
+  if(st.phase!=='complete')st.goal=goal;
+  st.observation=createObservation(sim,focusId);refreshObservation(sim,true,false);resumeObservation(sim);return semesterView(sim);
+}
+export function encourage(sim,kind){encourageObservation(sim,kind);return semesterView(sim);}
+function resumeObservation(sim){
+  const st=sim.semester,o=st.observation;if(!o?.enabled)return;
+  if(st.phase==='complete'){refreshObservation(sim,true);return;}
+  if(st.phase==='review'){refreshObservation(sim,true);advanceWeek(sim);}
+  if(st.phase==='planning'){
+    const plan=buildObservationPlan(sim);o.plans.push({week:st.week,focusId:plan.focusId,days:copy(plan.days),reason:plan.reason});o.lastPlanReason=plan.reason;
+    startWeek(sim,plan);mine(sim).thought=plan.reason;mine(sim).reason=plan.reason;sim.remember(mine(sim),'autonomy',plan.reason,'leaf');
+  }
+  if(st.decision){
+    const selected=chooseObservationDecision(sim);o.choices.push({week:st.week,day:sim.day,id:selected.id,reason:selected.reason});
+    chooseSemesterOption(sim,selected.id);mine(sim).thought=selected.reason;mine(sim).reason=selected.reason;sim.remember(mine(sim),'autonomy',selected.reason,'spark');
+  }
+}
+
 function makeCommitments(st){
   return st.days.flatMap((slots,d)=>slots.map((kind,i)=>({id:`w${st.week}-d${d}-s${i}`,kind,day:(st.week-1)*7+d+1,slot:i,start:[615,840,960][i],end:[660,885,1005][i],duration:45,status:'pending',minutes:0,sharedMinutes:0,partnerId:null,paid:0,outcome:'',dispatchedAt:null,partnerDispatched:false,conversation:null,projectPower:1})));
 }
@@ -123,20 +146,21 @@ export function chooseSemesterOption(sim,id){
 function assignTask(sim,s,c,role){
   const def=PLAN_ACTIVITIES[c.kind],label=c.conversation==='date'?'약속한 데이트':c.conversation==='confess'?'마음을 전할 약속':def.label;
   s.semesterTask={id:c.id,kind:c.kind,role,start:c.start,end:c.end};
-  sim.startActivity(s,def.action,role==='partner'?`${withName(mine(sim).name.slice(1))} ${clock(c.start)}에 만나기로 했어. 약속 장소로 가자.`:`${clock(c.start)}에는 ${label}. 계획한 시간을 직접 살아 보자.`,{venue:def.venue,duration:c.duration,semesterTask:s.semesterTask});
+  const reason=sim.semester.observation?.enabled?observationTaskReason(sim,c,role):role==='partner'?`${withName(mine(sim).name.slice(1))} ${clock(c.start)}에 만나기로 했어. 약속 장소로 가자.`:`${clock(c.start)}에는 ${label}. 계획한 시간을 직접 살아 보자.`;
+  sim.startActivity(s,def.action,reason,{venue:def.venue,duration:c.duration,semesterTask:s.semesterTask});
 }
 function dispatch(sim,c){
-  const st=sim.semester,s=mine(sim);c.status='traveling';c.dispatchedAt=sim.time;
+  const st=sim.semester,s=mine(sim);applyObservationEncouragement(sim,c);c.status='traveling';c.dispatchedAt=sim.time;
   if(s.energy<12&&st.stress>80&&c.kind!=='rest'){c.originalKind=c.kind;c.kind='rest';c.forcedRest=true;note(sim,'overload','너무 지쳐 약속 대신 쉬기로 했어요. 계획을 덜어 내야 할 것 같아요.','leaf');}
   if(c.partnerId===null&&!c.alone&&['friend','study','club'].includes(c.kind))c.partnerId=st.focusId;
   if(c.partnerId===null&&!c.alone&&c.kind==='work'&&st.focusId===3)c.partnerId=3;
   assignTask(sim,s,c,'player');
 }
 export function beforeSemesterStep(sim){
-  const st=sim.semester;if(st.phase!=='living'||st.decision)return;
+  resumeObservation(sim);const st=sim.semester;if(st.phase!=='living'||st.decision)return;
   st.dayOfWeek=Math.max(0,Math.min(6,sim.day-(st.week-1)*7-1));
-  if(st.dayOfWeek===6&&sim.time>=1110){finishWeek(sim);return;}
-  if(st.dayOfWeek===2&&sim.time>=735&&!st.decisionDone){st.decision=buildDecision(sim);return;}
+  if(st.dayOfWeek===6&&sim.time>=1110){finishWeek(sim);refreshObservation(sim,true);resumeObservation(sim);return;}
+  if(st.dayOfWeek===2&&sim.time>=735&&!st.decisionDone){st.decision=buildDecision(sim);resumeObservation(sim);return;}
   for(const c of st.commitments){if(c.day!==sim.day)continue;
     if(c.status==='pending'&&sim.time>c.end+20){c.status='missed';c.outcome='다른 일과로 약속 시간을 놓쳤어요.';st.weekStats.missed.push(`${WEEKDAYS[st.dayOfWeek]} ${PLAN_ACTIVITIES[c.kind].label}`);continue;}
     if(c.status==='pending'&&sim.time>=c.start-12&&!mine(sim).semesterTask&&!(mine(sim).action==='class'&&mine(sim).phase!=='walking'&&sim.time<(mine(sim).classSession?.end||0)))dispatch(sim,c);
@@ -191,6 +215,7 @@ export function semesterActivity(sim,s,dt){
   const stressEfficiency=st.stress>80?.6:st.stress>60?.82:1;
   if(s.action==='class'&&s.classSession){const i=s.classSession.id==='morning'?0:1,course=st.courses[i];course.attendedMinutes+=dt;st.weekStats.classMinutes[i]+=dt;course.knowledge=bound(course.knowledge+dt*.013*stressEfficiency);addGrowth(st,'knowledge',dt*.0015);st.stress=bound(st.stress+dt*.004);}
   if(s.action==='study'){st.weekStats.studyMinutes+=dt;const index=st.weekStats.studyMinutes%100<50?0:1;st.courses[index].knowledge=bound(st.courses[index].knowledge+dt*(c?.kind==='study'?.009:.0015)*stressEfficiency);addGrowth(st,'knowledge',dt*(c?.kind==='study'?.004:.0007));if([4,5,6,7,13,14,15].includes(st.week))st.courses[index].project=bound(st.courses[index].project+dt*(c?.kind==='study'?.016:.0015)*(c?.projectPower||1));}
+  observeActivity(sim,s,dt,c);
   if(!c)return;
   c.status='active';c.minutes+=dt;
   if(c.kind==='work'){st.weekStats.workMinutes+=dt;addGrowth(st,'independence',dt*.009);st.stress=bound(st.stress+dt*.06);s.energy=bound(s.energy-dt*.09);s.activityLabel='학생복지관에서 근무하는 중';s.pose='talk';}
@@ -213,7 +238,7 @@ export function semesterFinishActivity(sim,s){
     if(c.conversation&&!st.pendingConversation?.resolved)c.outcome+=' 아직 충분히 이야기하지 못해 마음을 전하지 못했어요.';
   }else{c.status='missed';c.outcome=c.forcedRest?'지쳐서 계획 대신 회복이 필요했어요.':'약속한 활동에 충분한 시간을 보내지 못했어요.';st.weekStats.missed.push(`${WEEKDAYS[(c.day-1)%7]} ${PLAN_ACTIVITIES[c.originalKind||c.kind].label}`);if(c.partnerId!==null){const r=relation(sim,c.partnerId);r.trust=bound(r.trust-2);mirror(sim,c.partnerId);}}
   sim.addLog(s,c.outcome,PLAN_ACTIVITIES[c.kind].icon,'commitment');if(c.kind==='work'||c.conversation)note(sim,'commitment',c.outcome,PLAN_ACTIVITIES[c.kind].icon,c.partnerId);
-  return true;
+  observeFinishedTask(sim,c);return true;
 }
 export function semesterClassFinished(sim,s){
   if(s.id!==0||!s.classSession)return;const st=sim.semester;if(![8,16].includes(st.week)||st.dayOfWeek!==2)return;
@@ -253,5 +278,5 @@ export function validateSemester(saved,students,day,time){
   for(const n of NPCS){const r=students[0]?.relationships[n.id];if(!rec(r)||!['trust','friendship','romance'].every(k=>num(r[k],0,100))||!integer(r.sharedActivities,0,10000)||!integer(r.dates,0,1000)||!integer(r.lastWeek,0,16)||!integer(r.declinedUntil,0,18)||!integer(r.neglectedWeeks,0,16)||!['acquaintance','friend','close','dating','declined'].includes(r.status))throw new Error('Invalid semester relationship');}
   for(const s of students)if(s.semesterTask!==null&&s.semesterTask!==undefined){const task=s.semesterTask;if(!rec(task)||!saved.commitments.some(c=>c.id===task.id)||!['player','partner'].includes(task.role)||!Object.hasOwn(PLAN_ACTIVITIES,task.kind)||task.role==='player'&&!saved.commitments.some(c=>c.id===task.id&&['active','traveling'].includes(c.status)))throw new Error('Invalid active semester task');}
   if(saved.pendingConversation!==null&&(!rec(saved.pendingConversation)||!['confess','date','support'].includes(saved.pendingConversation.kind)||!NPCS.some(n=>n.id===saved.pendingConversation.npcId)||typeof saved.pendingConversation.resolved!=='boolean'||!saved.commitments.some(c=>c.id===saved.pendingConversation.commitmentId)))throw new Error('Invalid pending conversation');
-  return copy(saved);
+  validateObservation(saved.observation,saved,day);return copy(saved);
 }

@@ -16,15 +16,19 @@ import tempfile
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
+# Chrome CLI clamps narrow desktop windows to 500px; 390px touch layouts are
+# additionally inspected through the in-app browser viewport override.
 CASES = {
     'simulation': ('/tests.html', 'results', None, (1440, 960)),
     'gameplay': ('/?qa=1&fresh=1', 'qa-results', 'gameplay-overview.png', (1600, 1000)),
     'closeup': ('/?qa=1&fresh=1&view=close', 'qa-results', 'gameplay-closeup.png', (1600, 1000)),
     'story': ('/?qa=1&fresh=1&view=story', 'qa-results', 'gameplay-story.png', (1600, 1000)),
-    'planner': ('/?qa=1&fresh=1&view=planner', 'qa-results', 'semester-planner.png', (1600, 1000)),
+    'wish': ('/?qa=1&fresh=1&view=wish', 'qa-results', 'observation-wish.png', (1600, 1000)),
+    'journal': ('/?qa=1&fresh=1&view=journal', 'qa-results', 'observation-journal.png', (1600, 1000)),
     'semester': ('/?qa=1&fresh=1&view=semester', 'qa-results', 'semester-ending.png', (1600, 1000)),
     'relationships': ('/?qa=1&fresh=1&view=relationships', 'qa-results', 'semester-relationships.png', (1600, 1000)),
-    'mobile-planner': ('/?qa=1&fresh=1&view=planner', 'qa-results', 'semester-mobile-planner.png', (500, 932)),
+    'mobile-wish': ('/?qa=1&fresh=1&view=wish', 'qa-results', 'observation-mobile-wish.png', (500, 844)),
+    'mobile-journal': ('/?qa=1&fresh=1&view=journal', 'qa-results', 'observation-mobile-journal.png', (500, 844)),
     'selection': ('/?fresh=1', None, 'campus-selection.png', (1440, 960)),
     'mobile': ('/?qa=1&fresh=1', 'qa-results', 'mobile-layout.png', (500, 932)),
 }

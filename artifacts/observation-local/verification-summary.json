@@ -1,0 +1,115 @@
+{
+  "timestamp_utc": "2026-10-25T06:01:25.192918+00:00",
+  "browser": "Google Chrome 145.0.7632.109",
+  "renderer": "ANGLE SwiftShader (headless software WebGL)",
+  "url": "http://127.0.0.1:4173",
+  "cases": [
+    {
+      "case": "simulation",
+      "url": "http://127.0.0.1:4173/tests.html",
+      "pass": true,
+      "checks": 228,
+      "failed": [],
+      "wall_seconds": 138.28
+    },
+    {
+      "case": "gameplay",
+      "url": "http://127.0.0.1:4173/?qa=1&fresh=1",
+      "pass": true,
+      "checks": 46,
+      "failed": [],
+      "screenshot": "gameplay-overview.png",
+      "wall_seconds": 8.19
+    },
+    {
+      "case": "closeup",
+      "url": "http://127.0.0.1:4173/?qa=1&fresh=1&view=close",
+      "pass": true,
+      "checks": 46,
+      "failed": [],
+      "screenshot": "gameplay-closeup.png",
+      "wall_seconds": 9.1
+    },
+    {
+      "case": "story",
+      "url": "http://127.0.0.1:4173/?qa=1&fresh=1&view=story",
+      "pass": true,
+      "checks": 46,
+      "failed": [],
+      "screenshot": "gameplay-story.png",
+      "wall_seconds": 6.41
+    },
+    {
+      "case": "wish",
+      "url": "http://127.0.0.1:4173/?qa=1&fresh=1&view=wish",
+      "pass": true,
+      "checks": 6,
+      "failed": [],
+      "screenshot": "observation-wish.png",
+      "wall_seconds": 7.02
+    },
+    {
+      "case": "journal",
+      "url": "http://127.0.0.1:4173/?qa=1&fresh=1&view=journal",
+      "pass": true,
+      "checks": 46,
+      "failed": [],
+      "screenshot": "observation-journal.png",
+      "wall_seconds": 9.83
+    },
+    {
+      "case": "semester",
+      "url": "http://127.0.0.1:4173/?qa=1&fresh=1&view=semester",
+      "pass": true,
+      "checks": 50,
+      "failed": [],
+      "screenshot": "semester-ending.png",
+      "wall_seconds": 16.72
+    },
+    {
+      "case": "relationships",
+      "url": "http://127.0.0.1:4173/?qa=1&fresh=1&view=relationships",
+      "pass": true,
+      "checks": 52,
+      "failed": [],
+      "screenshot": "semester-relationships.png",
+      "wall_seconds": 16.84
+    },
+    {
+      "case": "mobile-wish",
+      "url": "http://127.0.0.1:4173/?qa=1&fresh=1&view=wish",
+      "pass": true,
+      "checks": 6,
+      "failed": [],
+      "screenshot": "observation-mobile-wish.png",
+      "wall_seconds": 6.14
+    },
+    {
+      "case": "mobile-journal",
+      "url": "http://127.0.0.1:4173/?qa=1&fresh=1&view=journal",
+      "pass": true,
+      "checks": 46,
+      "failed": [],
+      "screenshot": "observation-mobile-journal.png",
+      "wall_seconds": 6.66
+    },
+    {
+      "case": "selection",
+      "url": "http://127.0.0.1:4173/?fresh=1",
+      "pass": true,
+      "checks": 2,
+      "screenshot": "campus-selection.png",
+      "wall_seconds": 6.05
+    },
+    {
+      "case": "mobile",
+      "url": "http://127.0.0.1:4173/?qa=1&fresh=1",
+      "pass": true,
+      "checks": 46,
+      "failed": [],
+      "screenshot": "mobile-layout.png",
+      "wall_seconds": 6.46
+    }
+  ],
+  "pass": true
+}

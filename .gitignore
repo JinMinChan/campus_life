@@ -10,3 +10,4 @@ artifacts/**/*-dom.html
 artifacts/**/*-browser.log
 artifacts/semester-dev/
 artifacts/semester-preview/
+artifacts/observation-dev/

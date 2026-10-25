@@ -1,0 +1,10 @@
+{
+  "day": 2,
+  "time": 1305.7952000002826,
+  "differingTopLevelKeys": [
+    "ui"
+  ],
+  "lifeExact": true,
+  "controlsExact": true,
+  "cameraMaxError": 0.01080515295197415
+}

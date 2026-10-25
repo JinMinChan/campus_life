@@ -1,0 +1,202 @@
+[
+  {
+    "at": "2026-10-25T06:00:27.195Z",
+    "diagnostics": {
+      "version": 3,
+      "experience": "observation",
+      "ready": true,
+      "semester": {
+        "week": 1,
+        "dayOfWeek": 0,
+        "phase": "living",
+        "decision": null,
+        "money": 145500,
+        "growth": {
+          "knowledge": 15.26258919999971,
+          "expression": 12.764971199999723,
+          "independence": 10
+        },
+        "history": 0,
+        "observing": true,
+        "wish": "friendship",
+        "progress": 0.4331996547657124
+      },
+      "clock": "22:18",
+      "day": 1,
+      "speed": 12,
+      "paused": false,
+      "selected": 0,
+      "follow": true,
+      "action": "sleep",
+      "phase": "walking",
+      "position": [
+        -77.92208250010839,
+        -68.284336718906
+      ],
+      "fps": 60,
+      "averageFps": 59,
+      "world": {
+        "webgl": true,
+        "renderer": {
+          "frame": 7013,
+          "calls": 55,
+          "triangles": 1041667,
+          "points": 236,
+          "lines": 0
+        },
+        "trees": 620,
+        "buildings": 62,
+        "graphNodes": 2105
+      },
+      "renderCalls": 55,
+      "triangles": 1041667,
+      "errors": [],
+      "lastSaved": "21:56",
+      "relationships": 14,
+      "memories": 26,
+      "story": [
+        {
+          "student": 0,
+          "time": "22:14",
+          "text": "제1학생생활관으로 향해요. 오늘의 이야기는 여기까지. 내일 또 만나자.",
+          "icon": "moon",
+          "day": 1,
+          "kind": "activity"
+        },
+        {
+          "student": 0,
+          "time": "22:14",
+          "text": "역사관 앞 그늘에 앉았더니 피로가 풀렸어요. 마음에 드는 자리가 생겼어요.",
+          "icon": "leaf",
+          "day": 1,
+          "kind": "rest"
+        },
+        {
+          "student": 0,
+          "time": "21:46",
+          "text": "역사관에 도착했어요. 나무 그늘에 앉아 쉬는 중.",
+          "icon": "leaf",
+          "day": 1,
+          "kind": "activity"
+        },
+        {
+          "student": 0,
+          "time": "21:39",
+          "text": "역사관으로 향해요. 역사관 앞 그 그늘, 오늘도 편안하겠지.",
+          "icon": "leaf",
+          "day": 1,
+          "kind": "activity"
+        },
+        {
+          "student": 0,
+          "time": "21:08",
+          "text": "백남학술정보관에 도착했어요. 노트를 펼쳐 읽는 중.",
+          "icon": "book",
+          "day": 1,
+          "kind": "activity"
+        }
+      ]
+    },
+    "notebookOpen": null
+  },
+  {
+    "at": "2026-10-25T06:02:22.892Z",
+    "diagnostics": {
+      "version": 3,
+      "experience": "observation",
+      "ready": true,
+      "semester": {
+        "week": 1,
+        "dayOfWeek": 1,
+        "phase": "living",
+        "decision": null,
+        "money": 136500,
+        "growth": {
+          "knowledge": 15.557816439999398,
+          "expression": 13.529950799999543,
+          "independence": 10
+        },
+        "history": 0,
+        "observing": true,
+        "wish": "friendship",
+        "progress": 0.4435685712457128
+      },
+      "clock": "21:39",
+      "day": 2,
+      "speed": 12,
+      "paused": false,
+      "selected": 0,
+      "follow": true,
+      "action": "social",
+      "phase": "walking",
+      "position": [
+        1.0218253830674646,
+        -55.21955567827283
+      ],
+      "fps": 60,
+      "averageFps": 60,
+      "world": {
+        "webgl": true,
+        "renderer": {
+          "frame": 14018,
+          "calls": 162,
+          "triangles": 1063331,
+          "points": 234,
+          "lines": 0
+        },
+        "trees": 620,
+        "buildings": 62,
+        "graphNodes": 2105
+      },
+      "renderCalls": 162,
+      "triangles": 1063331,
+      "errors": [],
+      "lastSaved": "20:48",
+      "relationships": 14,
+      "memories": 30,
+      "story": [
+        {
+          "student": 0,
+          "time": "21:39",
+          "text": "학생회관으로 향해요. 서연은 지금 뭘 할까? 학생회관에서 만나고 싶어.",
+          "icon": "people",
+          "day": 2,
+          "kind": "activity"
+        },
+        {
+          "student": 0,
+          "time": "21:08",
+          "text": "백남학술정보관에 도착했어요. 노트를 펼쳐 읽는 중.",
+          "icon": "book",
+          "day": 2,
+          "kind": "activity"
+        },
+        {
+          "student": 0,
+          "time": "21:01",
+          "text": "백남학술정보관으로 향해요. 놓친 수업 내용을 백남에서 다시 읽어 봐야겠어.",
+          "icon": "book",
+          "day": 2,
+          "kind": "activity"
+        },
+        {
+          "student": 0,
+          "time": "20:29",
+          "text": "학생회관에 도착했어요. 친구와 도란도란 이야기 중.",
+          "icon": "people",
+          "day": 2,
+          "kind": "activity"
+        },
+        {
+          "student": 0,
+          "time": "19:57",
+          "text": "학생회관에 도착했어요. 친구와 도란도란 이야기 중.",
+          "icon": "people",
+          "day": 2,
+          "kind": "activity"
+        }
+      ]
+    },
+    "notebookOpen": null
+  }
+]

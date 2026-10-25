@@ -1,5 +1,5 @@
-import {createSemester,ensureSemesterRelationships,semesterView,startWeek,setWeekDraft,chooseSemesterOption,advanceWeek,semesterBlocksTime,beforeSemesterStep,semesterArrival,semesterWaitFinished,semesterActivity,semesterFinishActivity,semesterClassFinished,semesterMeal,isSemesterExamDay,validateSemester} from './semester.js?v=5';
-export {SEMESTER_CALENDAR,PLAN_ACTIVITIES,NPCS,GOALS,WEEKDAYS} from './semester.js?v=5';
+import {createSemester,ensureSemesterRelationships,semesterView,startObservation,encourage,startWeek,setWeekDraft,chooseSemesterOption,advanceWeek,semesterBlocksTime,beforeSemesterStep,semesterArrival,semesterWaitFinished,semesterActivity,semesterFinishActivity,semesterClassFinished,semesterMeal,isSemesterExamDay,validateSemester} from './semester.js?v=6';
+export {SEMESTER_CALENDAR,PLAN_ACTIVITIES,NPCS,GOALS,WEEKDAYS} from './semester.js?v=6';
 export const TRAITS = {
   curious: {name:'호기심 많은 탐구가',short:'탐구가',icon:'spark',color:'#5c8f81',description:'새로운 길과 책 속에서 작은 발견을 해요.',weights:{study:1.3,social:.8,rest:1,exercise:1.2}},
   diligent: {name:'차근차근 계획가',short:'계획가',icon:'book',color:'#7186a6',description:'조금 일찍 도착하고, 배운 것을 오래 기억해요.',weights:{study:1.8,social:.55,rest:.8,exercise:.7}},
@@ -79,6 +79,8 @@ export class Simulation{
   get dayTheme(){return this.semesterView().calendar.title;}
   get semesterBlocksTime(){return semesterBlocksTime(this);}
   semesterView(){return semesterView(this);}
+  startObservation(options){return startObservation(this,options);}
+  encourage(kind){return encourage(this,kind);}
   startWeek(options){return startWeek(this,options);}
   setWeekDraft(options){return setWeekDraft(this,options);}
   chooseSemesterOption(id){return chooseSemesterOption(this,id);}

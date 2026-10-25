@@ -1,4 +1,4 @@
-import {Simulation,pointInPolygon} from './simulation.js?v=5';
+import {Simulation,pointInPolygon} from './simulation.js?v=6';
 const $=id=>document.getElementById(id);
 export async function runQA(api){
  const checks=[],check=(name,condition,detail='')=>checks.push({name,pass:Boolean(condition),detail});
@@ -6,16 +6,19 @@ export async function runQA(api){
   $('next-step').click();document.querySelector('[data-trait="curious"]').click();$('start').click();api.setPaused(true);
   let sim=api.sim,world=api.world;
   check('Campus and personality selection starts a new autonomous student',api.state.started&&sim.current.trait==='curious'&&$('setup').hidden);
-  const planning=JSON.stringify(sim.snapshot());sim.step(120);check('A new semester waits for the player plan',sim.semester.phase==='planning'&&JSON.stringify(sim.snapshot())===planning);
+  const planning=JSON.stringify(sim.snapshot());sim.step(120);check('Only the initial wish choice waits for the player',sim.semester.phase==='planning'&&JSON.stringify(sim.snapshot())===planning);
+  const unanswered=api.snapshot();api.restoreSnapshot(JSON.parse(JSON.stringify(unanswered)));sim=api.sim;world=api.world;
+  check('Saving before the first wish preserves that unanswered choice',sim.semester.phase==='planning'&&!sim.semester.observation?.enabled&&api.semesterUI.isOpen);
   api.updateUI();
-  if(['semester','relationships'].includes(api.params.get('view'))){
-    document.querySelector('[data-focus="2"]').click();document.querySelector('[data-goal="romance"]').click();
-    for(let day=0;day<7;day++)for(let slot=0;slot<3;slot++){document.querySelector(`[data-plan-day="${day}"][data-slot="${slot}"]`).click();document.querySelector(`[data-activity="${['friend','club','friend'][slot]}"]`).click();}
+  check('The opening asks for one wish instead of a 21-cell schedule',document.querySelectorAll('[data-wish]').length===4&&document.querySelectorAll('[data-plan-day]').length===0);
+  if(['semester','relationships'].includes(api.params.get('view')))document.querySelector('[data-wish="romance"]').click();
+  if(api.params.get('view')==='wish'){
+    check('A single start button is available',Boolean($('semester-start-week')));
+    return finish();
   }
-  const friday=document.querySelector('[data-plan-day="4"][data-slot="2"]');if(friday){friday.click();document.querySelector('[data-activity="work"]').click();}
-  document.getElementById('semester-start-week').click();
-  check('The seven-day planner preserves a specific Friday activity',sim.semester.days?.[4]?.[2]==='work');
-  check('Weekly planner starts actual campus life',sim.semester.phase==='living'&&!api.semesterUI.isOpen);
+  $('semester-start-week').click();
+  check('Choosing a wish starts autonomous observation',sim.semester.observation?.enabled&&sim.semester.phase==='living'&&!api.semesterUI.isOpen);
+  check('The student prepares all seven actual days',sim.semester.days.length===7&&sim.semester.days.every(day=>day.length===3));
   const initial=sim.current.position.slice();sim.step(1);check('Student moves along campus path',Math.hypot(initial[0]-sim.current.position[0],initial[1]-sim.current.position[1])>1);
   world.render();const character=world.characters[sim.selected].group.position;
   check('3D student follows simulation position',Math.abs(character.x-sim.current.position[0])<.1&&Math.abs(character.z-sim.current.position[1])<.1);
@@ -46,42 +49,53 @@ export async function runQA(api){
   check('Data source notes are available',$('data-notes').children.length>=4);
   world.resetCamera();world.render();check('Overview renders all campus buildings',world.stats.buildings===62);check('WebGL renders substantial scene',world.renderer.info.render.triangles>1000);
   check('No caught runtime errors',api.state.errors.length===0);
-  document.getElementById('semester-open').click();document.querySelector('[data-tab="calendar"]').click();check('Academic calendar opens in the semester notebook',api.semesterUI.isOpen&&document.body.textContent.includes('중간고사'));document.querySelector('#semester-notebook [data-do="close"]').click();
-  const weekStart=sim.semester.week;sim.step(100000);api.updateUI();
-  check('Weekly decision interrupts actual multi-day life',Boolean(sim.semester.decision)&&sim.semesterBlocksTime&&sim.day===3);
-  const decisionSaved=api.snapshot();api.restoreSnapshot(JSON.parse(JSON.stringify(decisionSaved)));sim=api.sim;
-  check('Saving restores a pending decision',JSON.stringify(sim.snapshot().semester)===JSON.stringify(decisionSaved.semester));
-  const option=document.querySelector('[data-semester-option]:not([disabled])');if(!option)throw new Error('No visible semester option control');option.click();
-  check('Choosing a decision through UI resumes the week',!sim.semester.decision&&!api.semesterUI.isOpen);
-  sim.step(100000);api.updateUI();
-  check('Weekly review follows all seven actual days',sim.semester.phase==='review'&&sim.day===7&&api.semesterUI.isOpen);
-  document.getElementById('semester-next').click();
-  check('Weekly review opens the following weekly planner',sim.semester.week===weekStart+1&&sim.semester.phase==='planning');
-  if(api.params.get('view')!=='planner')document.getElementById('semester-start-week').click();
+  $('semester-open').click();document.querySelector('[data-tab="calendar"]').click();document.querySelector('.observation-calendar > summary')?.click();check('The optional notebook keeps the academic calendar',api.semesterUI.isOpen&&document.querySelector('#semester-notebook').textContent.includes('중간고사'));
+  api.setPaused(false);const frozenInNotebook=sim.time;await new Promise(r=>setTimeout(r,200));check('Reading the optional notebook pauses the visible campus',sim.time===frozenInNotebook);api.setPaused(true);
+  $('semester-close').click();
+  const observedDays=new Set();let guard=0;
+  while(sim.day<=7&&guard++<900){observedDays.add(sim.day);sim.step(17);api.updateUI();if(api.semesterUI.isOpen)throw new Error('A compulsory popup interrupted observation');}
+  check('Every day Monday to Sunday is actually observed',observedDays.size===7);
+  check('Wednesday decisions are made without a player response',sim.semester.choices.some(c=>c.week===1));
+  check('A completed week continues into the next week without a planning popup',sim.semester.week===2&&sim.semester.phase==='living'&&!api.semesterUI.isOpen);
+  check('Actual accomplishments create persistent milestones',sim.semesterView().observation.milestones.some(m=>m.done));
+  $('semester-open').click();document.querySelector('[data-tab="plan"]').click();
+  document.querySelector('.wish-encouragement > summary').click();
+  const encouragement=document.querySelector('[data-encourage="believe"]');encouragement.click();
+  check('An optional encouragement is recorded for this week',sim.semesterView().observation.lastEncouragement?.week===sim.semester.week);
+  check('Encouragement cannot become a repeated click chore',Array.from(document.querySelectorAll('[data-encourage]')).every(button=>button.disabled));
+  $('semester-close').click();
+  const observedSave=api.snapshot();api.restoreSnapshot(JSON.parse(JSON.stringify(observedSave)));sim=api.sim;
+  check('Wish, actual milestones and encouragement survive save restoration',JSON.stringify(sim.snapshot().semester)===JSON.stringify(observedSave.semester));
+  check('Reloading an observing student does not reopen a compulsory notebook',!api.semesterUI.isOpen);
   if(['semester','relationships'].includes(api.params.get('view'))){
-    let turns=0;while(sim.semester.phase!=='complete'&&turns++<100){
-      api.updateUI();if(sim.semester.phase==='planning')document.getElementById('semester-start-week').click();
-      else if(sim.semester.decision){const r=sim.students[0].relationships[2];const preferred=r.status==='dating'?'date':r.friendship>=45&&r.trust>=35&&r.romance>=20&&r.sharedActivities>=5&&sim.semester.growth.expression>=20?'confess':'spend-time';(document.querySelector(`[data-semester-option="${preferred}"]:not([disabled])`)||document.querySelector('[data-semester-option]:not([disabled])')).click();}
-      else if(sim.semester.phase==='review')document.getElementById('semester-next').click();
-      else sim.step(100000);
-    }api.updateUI();check('Sixteen-week UI flow reaches the final report after 112 days',sim.semester.phase==='complete'&&sim.day===112);
-    check('A full semester develops an actual mutual romance',sim.students[0].relationships[2]?.status==='dating'&&sim.students[0].relationships[2]?.dates>=3);
-    const ending=api.snapshot();api.restoreSnapshot(JSON.parse(JSON.stringify(ending)));sim=api.sim;check('Final semester report survives save and restore',JSON.stringify(sim.snapshot().semester)===JSON.stringify(ending.semester));
+    sim.step(200000);api.updateUI();
+    check('One initial wish reaches the ending after 112 real days with no intervening choices',sim.semester.phase==='complete'&&sim.day===112&&sim.semester.history.length===16);
+    check('An ending does not interrupt the camera with a modal',!api.semesterUI.isOpen);
+    check('Independent choices can develop an actual mutual romance',sim.students[0].relationships[2]?.status==='dating'&&sim.students[0].relationships[2]?.dates>=3);
+    const ending=api.snapshot();api.restoreSnapshot(JSON.parse(JSON.stringify(ending)));sim=api.sim;check('The final observed semester survives save restoration',JSON.stringify(sim.snapshot().semester)===JSON.stringify(ending.semester));
   }
   // Capture meaningful initial observation; no fabricated events or forced story state.
   document.querySelector('[data-speed="1"]').click();api.setPaused(true);world.resetCamera();
   if(api.params.get('view')==='close')world.focusStudent(100);
   if(api.params.get('view')==='story'){sim.step(200);world.focusStudent(110);}
   api.updateUI();
-  if(api.params.get('view')==='relationships'){
-    document.querySelector('[data-do="ending-notebook"]').click();document.querySelector('[data-tab="friends"]').click();
-    await new Promise(resolve=>setTimeout(resolve,100));api.updateUI();
-    const partner=document.querySelector('.semester-friend-card.dating');
-    check('Completed relationship notebook keeps its selected tab after queued close events',api.semesterUI.isOpen&&document.querySelector('[data-tab="friends"]').getAttribute('aria-pressed')==='true');
-    check('Completed relationship notebook shows the actual partner',partner?.textContent.includes('박서연')&&partner?.textContent.includes('연인')&&document.querySelectorAll('.semester-friend-card').length===3);
+  if(['journal','semester','relationships'].includes(api.params.get('view'))){
+    $('semester-open').click();
+    if(api.params.get('view')==='relationships'){
+      document.querySelector('[data-tab="friends"]').click();
+      await new Promise(resolve=>setTimeout(resolve,100));api.updateUI();
+      const partner=document.querySelector('.semester-friend-card.dating');
+      check('The relationship tab survives queued dialog events',api.semesterUI.isOpen&&document.querySelector('[data-tab="friends"]').getAttribute('aria-pressed')==='true');
+      check('The notebook shows the actual partner',partner?.textContent.includes('박서연')&&partner?.textContent.includes('연인'));
+    }
   }
+  finish();
+  function finish(){
   world.render();api.toast();
-  const report={pass:checks.every(c=>c.pass),checks,world:world.stats,semester:{week:sim.semester.week,day:sim.day,phase:sim.semester.phase},clock:sim.clock,studentPosition:sim.current.position,render:{calls:world.renderer.info.render.calls,triangles:world.renderer.info.render.triangles},errors:api.state.errors};
+  const dialog=$('semester-notebook'),bounds=dialog.getBoundingClientRect();
+  check('The notebook stays within the actual browser viewport',!dialog.open||(bounds.left>=0&&bounds.right<=window.innerWidth+.5&&bounds.top>=0&&bounds.bottom<=window.innerHeight+.5));
+  const report={pass:checks.every(c=>c.pass),checks,viewport:{width:window.innerWidth,height:window.innerHeight},world:world.stats,semester:{week:sim.semester.week,day:sim.day,phase:sim.semester.phase},clock:sim.clock,studentPosition:sim.current.position,render:{calls:world.renderer.info.render.calls,triangles:world.renderer.info.render.triangles},errors:api.state.errors};
   const pre=document.createElement('pre');pre.id='qa-results';pre.hidden=true;pre.textContent=JSON.stringify(report);document.body.append(pre);document.body.dataset.qa=report.pass?'pass':'fail';
+  }
  }catch(error){const pre=document.createElement('pre');pre.id='qa-results';pre.hidden=true;pre.textContent=JSON.stringify({pass:false,checks,error:String(error),stack:error.stack,errors:api.state.errors});document.body.append(pre);document.body.dataset.qa='fail';console.error(error);}
 }

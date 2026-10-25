@@ -7,6 +7,7 @@ on:
       - 'artifacts/**'
       - 'README.md'
       - 'TEST_REPORT.md'
+      - 'OBSERVATION_REPORT.md'
   workflow_dispatch:
 
 permissions:
@@ -32,6 +33,7 @@ jobs:
         run: |
           node scripts/simulation_test.mjs
           node scripts/semester_test.mjs
+          node scripts/observation_test.mjs
       - name: Build and validate static assets
         run: python3 scripts/build.py
       - name: Configure GitHub Pages

@@ -1,0 +1,67 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "name": "Campus and personality selection starts a new autonomous student",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Only the initial wish choice waits for the player",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Saving before the first wish preserves that unanswered choice",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "The opening asks for one wish instead of a 21-cell schedule",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "A single start button is available",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "The notebook stays within the actual browser viewport",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "viewport": {
+    "width": 500,
+    "height": 757
+  },
+  "world": {
+    "webgl": true,
+    "renderer": {
+      "frame": 5,
+      "calls": 228,
+      "triangles": 1070345,
+      "points": 80,
+      "lines": 0
+    },
+    "trees": 620,
+    "buildings": 62,
+    "graphNodes": 2105
+  },
+  "semester": {
+    "week": 1,
+    "day": 1,
+    "phase": "planning"
+  },
+  "clock": "08:45",
+  "studentPosition": [
+    -182.86333333333334,
+    89.11
+  ],
+  "render": {
+    "calls": 228,
+    "triangles": 1070345
+  },
+  "errors": []
+}

@@ -1,0 +1,4282 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "name": "Invalid observation setup is rejected atomically: {\"goal\":\"not-a-goal\"}",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid observation setup is rejected atomically: {\"focusId\":999}",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "One start opens a living semester with no blocking planner",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "The observer can see a concrete wish and next step",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Initial milestone progress is bounded and has no fabricated achievements",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Zero or invalid elapsed time never advances observation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "The same academic wish still leaves room for different personalities",
+      "pass": true,
+      "detail": "{\"curious\":[[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"rest\",\"study\"],[\"study\",\"rest\",\"study\"]],\"diligent\":[[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"rest\"],[\"study\",\"rest\",\"study\"],[\"study\",\"rest\",\"study\"]],\"social\":[[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"friend\",\"study\"],[\"study\",\"friend\",\"study\"]]}"
+    },
+    {
+      "name": "Different wishes create different self-chosen weekly activities",
+      "pass": true,
+      "detail": "{\"scholar\":[[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"study\",\"study\"],[\"study\",\"rest\",\"study\"],[\"study\",\"rest\",\"study\"]],\"friendship\":[[\"study\",\"friend\",\"club\"],[\"study\",\"friend\",\"club\"],[\"study\",\"friend\",\"club\"],[\"study\",\"friend\",\"club\"],[\"study\",\"friend\",\"club\"],[\"study\",\"friend\",\"club\"],[\"study\",\"friend\",\"rest\"]],\"romance\":[[\"friend\",\"club\",\"friend\"],[\"friend\",\"club\",\"friend\"],[\"friend\",\"club\",\"friend\"],[\"friend\",\"club\",\"friend\"],[\"friend\",\"club\",\"friend\"],[\"friend\",\"club\",\"friend\"],[\"friend\",\"club\",\"friend\"]],\"independent\":[[\"work\",\"work\",\"rest\"],[\"work\",\"work\",\"rest\"],[\"work\",\"work\",\"rest\"],[\"work\",\"work\",\"rest\"],[\"work\",\"work\",\"rest\"],[\"work\",\"friend\",\"rest\"],[\"work\",\"friend\",\"rest\"]]}"
+    },
+    {
+      "name": "A student under real fatigue and stress leaves more room for recovery",
+      "pass": true,
+      "detail": "9 versus 3 rest slots"
+    },
+    {
+      "name": "planning: old version 3 data restores without changing time, memories, decisions or history",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "planning: opting into observation continues forward from the existing life",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "living: old version 3 data restores without changing time, memories, decisions or history",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "living: opting into observation continues forward from the existing life",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "decision: old version 3 data restores without changing time, memories, decisions or history",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "decision: opting into observation continues forward from the existing life",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "review: old version 3 data restores without changing time, memories, decisions or history",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "review: opting into observation continues forward from the existing life",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "rest: encouragement records the current week and consumes one optional opportunity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "rest: encouragement does not award instantaneous growth, money or restored needs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "rest: a second encouragement in the same week changes nothing",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "rest: a pending encouragement survives saving into the identical future",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "rest: the effect is applied to an activity that was physically performed",
+      "pass": true,
+      "detail": "{\"record\":{\"kind\":\"rest\",\"week\":1,\"day\":1,\"commitmentId\":\"w1-d0-s0\"},\"task\":{\"id\":\"w1-d0-s0\",\"kind\":\"rest\",\"day\":1,\"slot\":0,\"start\":615,\"end\":660,\"duration\":45,\"status\":\"completed\",\"minutes\":45.0000000000001,\"sharedMinutes\":0,\"partnerId\":null,\"paid\":0,\"outcome\":\"45분 동안 나를 돌보는 시간를 실제로 했어요.\",\"dispatchedAt\":603.0000000000177,\"partnerDispatched\":false,\"conversation\":null,\"projectPower\":1,\"encouraged\":\"rest\",\"alone\":true}}"
+    },
+    {
+      "name": "rest: encouragement makes a measurable difference after the actual activity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "rest: a new week restores the optional opportunity without asking for a decision",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "connect: encouragement records the current week and consumes one optional opportunity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "connect: encouragement does not award instantaneous growth, money or restored needs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "connect: a second encouragement in the same week changes nothing",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "connect: a pending encouragement survives saving into the identical future",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "connect: the effect is applied to an activity that was physically performed",
+      "pass": true,
+      "detail": "{\"record\":{\"kind\":\"connect\",\"week\":1,\"day\":1,\"commitmentId\":\"w1-d0-s0\"},\"task\":{\"id\":\"w1-d0-s0\",\"kind\":\"friend\",\"day\":1,\"slot\":0,\"start\":615,\"end\":660,\"duration\":45,\"status\":\"completed\",\"minutes\":45.0000000000001,\"sharedMinutes\":45.0000000000001,\"partnerId\":1,\"paid\":0,\"outcome\":\"45분 동안 친구와 시간 보내기를 실제로 했어요. 이도윤과 45분을 함께했어요.\",\"dispatchedAt\":603.0000000000177,\"partnerDispatched\":true,\"conversation\":null,\"projectPower\":1,\"encouraged\":\"connect\",\"alone\":false}}"
+    },
+    {
+      "name": "connect: encouragement makes a measurable difference after the actual activity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "connect: a new week restores the optional opportunity without asking for a decision",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "believe: encouragement records the current week and consumes one optional opportunity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "believe: encouragement does not award instantaneous growth, money or restored needs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "believe: a second encouragement in the same week changes nothing",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "believe: a pending encouragement survives saving into the identical future",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "believe: the effect is applied to an activity that was physically performed",
+      "pass": true,
+      "detail": "{\"record\":{\"kind\":\"believe\",\"week\":1,\"day\":1,\"commitmentId\":\"w1-d0-s0\"},\"task\":{\"id\":\"w1-d0-s0\",\"kind\":\"study\",\"day\":1,\"slot\":0,\"start\":615,\"end\":665,\"duration\":50,\"status\":\"completed\",\"minutes\":50.00000000000017,\"sharedMinutes\":50.00000000000017,\"partnerId\":1,\"paid\":0,\"outcome\":\"50분 동안 깊이 공부하기를 실제로 했어요. 이도윤과 50분을 함께했어요.\",\"dispatchedAt\":603.0000000000177,\"partnerDispatched\":true,\"conversation\":null,\"projectPower\":1,\"encouraged\":\"believe\"}}"
+    },
+    {
+      "name": "believe: encouragement makes a measurable difference after the actual activity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "believe: a new week restores the optional opportunity without asking for a decision",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid observation save leaves the current life untouched: unsupported version",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid observation save leaves the current life untouched: invalid enabled flag",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid observation save leaves the current life untouched: unknown wish",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid observation save leaves the current life untouched: unknown preferred friend",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid observation save leaves the current life untouched: impossible start day",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid observation save leaves the current life untouched: malformed plans",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid observation save leaves the current life untouched: malformed choices",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid observation save leaves the current life untouched: malformed milestone records",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid observation save leaves the current life untouched: non-finite activity time",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid observation save leaves the current life untouched: negative earned income",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid observation save leaves the current life untouched: unknown unlocked milestone",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid observation save leaves the current life untouched: future encouragement",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid observation save leaves the current life untouched: malformed applied support",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "scholar: all 112 days pass after just one start, without any player choice",
+      "pass": true,
+      "detail": "112 days; 8683 observation samples"
+    },
+    {
+      "name": "scholar: no planner, review or Wednesday choice interrupts observation",
+      "pass": true,
+      "detail": "0 blocked states; 0 unresolved choices"
+    },
+    {
+      "name": "scholar: every week produces its own plan and retained review",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "scholar: all 16 weekly decisions are explicitly recorded as autonomous",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "scholar: actual activities and course results occur without supervision",
+      "pass": true,
+      "detail": "{\"class\":613,\"study\":3786,\"eat\":422,\"rest\":439,\"social\":480,\"sleep\":2943}"
+    },
+    {
+      "name": "scholar: the selected long-term wish is achievable with no encouragement",
+      "pass": true,
+      "detail": "{\"ending\":{\"title\":\"나의 질문이 자란 학기\",\"text\":\"처음 정한 바람이 매일의 행동과 만남을 거쳐 현실이 되었어요.\",\"goal\":\"scholar\",\"success\":true,\"highlights\":[\"두 과목 평균 82.5점\",\"기억에 남은 친구 2명\",\"학기 말 생활비 264,000원\",\"112일의 캠퍼스 생활을 마쳤어요. 다음은 겨울방학이에요.\"]},\"growth\":{\"knowledge\":100,\"expression\":14.191499999999769,\"independence\":10},\"courses\":[{\"id\":\"foundation\",\"title\":\"창의적 공학설계\",\"knowledge\":100,\"attendance\":99.99999999996383,\"attendedMinutes\":3999.999999998553,\"midterm\":69,\"final\":100,\"project\":61.290280000042955,\"grade\":83},{\"id\":\"seminar\",\"title\":\"사고와 표현\",\"knowledge\":100,\"attendance\":99.99999999996383,\"attendedMinutes\":3999.999999998553,\"midterm\":66,\"final\":100,\"project\":59.88942000003616,\"grade\":82}],\"relationships\":[{\"id\":1,\"affinity\":100,\"encounters\":112,\"sharedMeals\":208,\"studySessions\":112,\"lastDay\":112,\"trust\":100,\"friendship\":100,\"romance\":1.6199999999999521,\"status\":\"close\",\"sharedActivities\":687,\"dates\":0,\"lastWeek\":16,\"declinedUntil\":0,\"neglectedWeeks\":0,\"lastConversation\":null,\"friendSince\":15},{\"id\":2,\"affinity\":81.891999999847,\"encounters\":15,\"sharedMeals\":1,\"studySessions\":3,\"lastDay\":112,\"trust\":0,\"friendship\":0,\"romance\":0,\"status\":\"acquaintance\",\"sharedActivities\":3,\"dates\":0,\"lastWeek\":16,\"declinedUntil\":0,\"neglectedWeeks\":0,\"lastConversation\":null},{\"id\":3,\"affinity\":100,\"encounters\":84,\"sharedMeals\":151,\"studySessions\":83,\"lastDay\":112,\"trust\":23.67199999999109,\"friendship\":43.81279999998657,\"romance\":0,\"status\":\"friend\",\"sharedActivities\":155,\"dates\":0,\"lastWeek\":16,\"declinedUntil\":0,\"neglectedWeeks\":0,\"lastConversation\":null,\"friendSince\":96}],\"money\":264000}"
+    },
+    {
+      "name": "scholar: progress and milestone dates remain valid throughout the semester",
+      "pass": true,
+      "detail": "{\"invalidProgress\":0,\"prematureDates\":0,\"unlocks\":[{\"id\":\"first-study\",\"day\":1,\"week\":1,\"record\":{\"id\":\"first-study\",\"title\":\"백남에서 처음 펼친 노트\",\"detail\":\"궁금했던 내용을 스스로 찾아 읽었어요.\",\"done\":true,\"day\":1,\"week\":1}},{\"id\":\"shared-notes\",\"day\":1,\"week\":1,\"record\":{\"id\":\"shared-notes\",\"title\":\"같이 풀어 본 작은 질문\",\"detail\":\"혼자 막혔던 부분을 친구와 노트를 맞춰 보며 배웠어요.\",\"done\":true,\"day\":1,\"week\":1}},{\"id\":\"project-piece\",\"day\":42,\"week\":6,\"record\":{\"id\":\"project-piece\",\"title\":\"내가 만든 과제의 한 조각\",\"detail\":\"실제 복습과 협업이 손에 잡히는 결과물로 남기 시작했어요.\",\"done\":true,\"day\":42,\"week\":6}},{\"id\":\"first-exam\",\"day\":52,\"week\":8,\"record\":{\"id\":\"first-exam\",\"title\":\"시험장에서 떠오른 배움\",\"detail\":\"함께 공부했던 내용으로 첫 시험을 풀어 냈어요.\",\"done\":true,\"day\":52,\"week\":8}}]}"
+    },
+    {
+      "name": "scholar: a first earned milestone appears within the first three actual days",
+      "pass": true,
+      "detail": "[{\"id\":\"first-study\",\"day\":1,\"done\":true},{\"id\":\"shared-notes\",\"day\":1,\"done\":true},{\"id\":\"project-piece\",\"day\":42,\"done\":true},{\"id\":\"first-exam\",\"day\":52,\"done\":true},{\"id\":\"wish-realized\",\"day\":112,\"done\":true}]"
+    },
+    {
+      "name": "scholar: every unlocked milestone is supported by actual activity, relationship or academic results",
+      "pass": true,
+      "detail": "{\"unsupportedMilestones\":[],\"milestones\":[{\"id\":\"first-study\",\"title\":\"백남에서 처음 펼친 노트\",\"detail\":\"궁금했던 내용을 스스로 찾아 읽었어요.\",\"done\":true,\"day\":1,\"week\":1},{\"id\":\"shared-notes\",\"title\":\"같이 풀어 본 작은 질문\",\"detail\":\"혼자 막혔던 부분을 친구와 노트를 맞춰 보며 배웠어요.\",\"done\":true,\"day\":1,\"week\":1},{\"id\":\"project-piece\",\"title\":\"내가 만든 과제의 한 조각\",\"detail\":\"실제 복습과 협업이 손에 잡히는 결과물로 남기 시작했어요.\",\"done\":true,\"day\":42,\"week\":6},{\"id\":\"first-exam\",\"title\":\"시험장에서 떠오른 배움\",\"detail\":\"함께 공부했던 내용으로 첫 시험을 풀어 냈어요.\",\"done\":true,\"day\":52,\"week\":8},{\"id\":\"wish-realized\",\"title\":\"한 학기만큼 자란 질문\",\"detail\":\"112일의 배움이 나만의 자신감으로 남았어요.\",\"done\":true,\"day\":112,\"week\":16}]}"
+    },
+    {
+      "name": "scholar: the observer receives recorded moments while life progresses",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "scholar: completion is the only permanent stop and survives saving",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "friendship: all 112 days pass after just one start, without any player choice",
+      "pass": true,
+      "detail": "112 days; 8683 observation samples"
+    },
+    {
+      "name": "friendship: no planner, review or Wednesday choice interrupts observation",
+      "pass": true,
+      "detail": "0 blocked states; 0 unresolved choices"
+    },
+    {
+      "name": "friendship: every week produces its own plan and retained review",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "friendship: all 16 weekly decisions are explicitly recorded as autonomous",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "friendship: actual activities and course results occur without supervision",
+      "pass": true,
+      "detail": "{\"class\":506,\"social\":2985,\"study\":1644,\"eat\":428,\"rest\":165,\"sleep\":2955}"
+    },
+    {
+      "name": "friendship: the selected long-term wish is achievable with no encouragement",
+      "pass": true,
+      "detail": "{\"ending\":{\"title\":\"캠퍼스에 내 편이 생겼다\",\"text\":\"처음 정한 바람이 매일의 행동과 만남을 거쳐 현실이 되었어요.\",\"goal\":\"friendship\",\"success\":true,\"highlights\":[\"두 과목 평균 47.5점\",\"기억에 남은 친구 3명\",\"학기 말 생활비 264,000원\",\"112일의 캠퍼스 생활을 마쳤어요. 다음은 겨울방학이에요.\"]},\"growth\":{\"knowledge\":42.59089999998277,\"expression\":100,\"independence\":10},\"courses\":[{\"id\":\"foundation\",\"title\":\"창의적 공학설계\",\"knowledge\":41.00690000006307,\"attendance\":98.05999999996558,\"attendedMinutes\":3922.3999999986236,\"midterm\":37,\"final\":47,\"project\":7.45980000000329,\"grade\":43},{\"id\":\"seminar\",\"title\":\"사고와 표현\",\"knowledge\":39.580800000039396,\"attendance\":94.6499999999687,\"attendedMinutes\":3785.9999999987476,\"midterm\":39,\"final\":50,\"project\":60.47710000003125,\"grade\":52}],\"relationships\":[{\"id\":1,\"affinity\":100,\"encounters\":112,\"sharedMeals\":198,\"studySessions\":112,\"lastDay\":112,\"trust\":33.06849999997749,\"friendship\":71.02551999993231,\"romance\":0,\"status\":\"friend\",\"sharedActivities\":300,\"dates\":0,\"lastWeek\":16,\"declinedUntil\":0,\"neglectedWeeks\":0,\"lastConversation\":null,\"friendSince\":52},{\"id\":2,\"affinity\":100,\"encounters\":112,\"sharedMeals\":206,\"studySessions\":104,\"lastDay\":112,\"trust\":80.24000000004104,\"friendship\":100,\"romance\":40.07279999999571,\"status\":\"close\",\"sharedActivities\":508,\"dates\":0,\"lastWeek\":16,\"declinedUntil\":0,\"neglectedWeeks\":0,\"lastConversation\":null,\"friendSince\":19},{\"id\":3,\"affinity\":100,\"encounters\":108,\"sharedMeals\":18,\"studySessions\":93,\"lastDay\":112,\"trust\":70.45090000000832,\"friendship\":100,\"romance\":35.81600000000971,\"status\":\"close\",\"sharedActivities\":250,\"dates\":0,\"lastWeek\":16,\"declinedUntil\":0,\"neglectedWeeks\":0,\"lastConversation\":null,\"friendSince\":28}],\"money\":264000}"
+    },
+    {
+      "name": "friendship: progress and milestone dates remain valid throughout the semester",
+      "pass": true,
+      "detail": "{\"invalidProgress\":0,\"prematureDates\":0,\"unlocks\":[{\"id\":\"first-hello\",\"day\":1,\"week\":1,\"record\":{\"id\":\"first-hello\",\"title\":\"낯선 이름에 건넨 인사\",\"detail\":\"같은 캠퍼스의 누군가와 처음 인사를 나눴어요.\",\"done\":true,\"day\":1,\"week\":1}},{\"id\":\"shared-table\",\"day\":1,\"week\":1,\"record\":{\"id\":\"shared-table\",\"title\":\"함께 앉은 첫 식탁\",\"detail\":\"평범한 밥 한 끼가 함께 기억하는 장면이 됐어요.\",\"done\":true,\"day\":1,\"week\":1}},{\"id\":\"trusted-friend\",\"day\":19,\"week\":3,\"record\":{\"id\":\"trusted-friend\",\"title\":\"먼저 떠오르는 친구\",\"detail\":\"편하게 이야기하고 서로를 믿는 사람이 생겼어요.\",\"done\":true,\"day\":19,\"week\":3}},{\"id\":\"friend-circle\",\"day\":53,\"week\":8,\"record\":{\"id\":\"friend-circle\",\"title\":\"함께 웃을 우리\",\"detail\":\"각자 다른 두 사람과 오랜 시간을 쌓았어요.\",\"done\":true,\"day\":53,\"week\":8}}]}"
+    },
+    {
+      "name": "friendship: a first earned milestone appears within the first three actual days",
+      "pass": true,
+      "detail": "[{\"id\":\"first-hello\",\"day\":1,\"done\":true},{\"id\":\"shared-table\",\"day\":1,\"done\":true},{\"id\":\"trusted-friend\",\"day\":19,\"done\":true},{\"id\":\"friend-circle\",\"day\":53,\"done\":true},{\"id\":\"wish-realized\",\"day\":112,\"done\":true}]"
+    },
+    {
+      "name": "friendship: every unlocked milestone is supported by actual activity, relationship or academic results",
+      "pass": true,
+      "detail": "{\"unsupportedMilestones\":[],\"milestones\":[{\"id\":\"first-hello\",\"title\":\"낯선 이름에 건넨 인사\",\"detail\":\"같은 캠퍼스의 누군가와 처음 인사를 나눴어요.\",\"done\":true,\"day\":1,\"week\":1},{\"id\":\"shared-table\",\"title\":\"함께 앉은 첫 식탁\",\"detail\":\"평범한 밥 한 끼가 함께 기억하는 장면이 됐어요.\",\"done\":true,\"day\":1,\"week\":1},{\"id\":\"trusted-friend\",\"title\":\"먼저 떠오르는 친구\",\"detail\":\"편하게 이야기하고 서로를 믿는 사람이 생겼어요.\",\"done\":true,\"day\":19,\"week\":3},{\"id\":\"friend-circle\",\"title\":\"함께 웃을 우리\",\"detail\":\"각자 다른 두 사람과 오랜 시간을 쌓았어요.\",\"done\":true,\"day\":53,\"week\":8},{\"id\":\"wish-realized\",\"title\":\"캠퍼스에 남은 내 편\",\"detail\":\"처음의 작은 인사가 한 학기의 우정이 되었어요.\",\"done\":true,\"day\":112,\"week\":16}]}"
+    },
+    {
+      "name": "friendship: the observer receives recorded moments while life progresses",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "friendship: completion is the only permanent stop and survives saving",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "romance: all 112 days pass after just one start, without any player choice",
+      "pass": true,
+      "detail": "112 days; 8683 observation samples"
+    },
+    {
+      "name": "romance: no planner, review or Wednesday choice interrupts observation",
+      "pass": true,
+      "detail": "0 blocked states; 0 unresolved choices"
+    },
+    {
+      "name": "romance: every week produces its own plan and retained review",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "romance: all 16 weekly decisions are explicitly recorded as autonomous",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "romance: actual activities and course results occur without supervision",
+      "pass": true,
+      "detail": "{\"class\":505,\"social\":2781,\"study\":1658,\"eat\":421,\"rest\":369,\"sleep\":2949}"
+    },
+    {
+      "name": "romance: the selected long-term wish is achievable with no encouragement",
+      "pass": true,
+      "detail": "{\"ending\":{\"title\":\"함께 걷게 된 계절\",\"text\":\"처음 정한 바람이 매일의 행동과 만남을 거쳐 현실이 되었어요.\",\"goal\":\"romance\",\"success\":true,\"highlights\":[\"두 과목 평균 48.0점\",\"기억에 남은 친구 2명\",\"학기 말 생활비 264,000원\",\"112일의 캠퍼스 생활을 마쳤어요. 다음은 겨울방학이에요.\"]},\"growth\":{\"knowledge\":42.75317999998493,\"expression\":90.8265000000354,\"independence\":10},\"courses\":[{\"id\":\"foundation\",\"title\":\"창의적 공학설계\",\"knowledge\":41.37200000006732,\"attendance\":98.05999999996558,\"attendedMinutes\":3922.3999999986236,\"midterm\":37,\"final\":47,\"project\":7.603800000003381,\"grade\":43},{\"id\":\"seminar\",\"title\":\"사고와 표현\",\"knowledge\":39.496900000039794,\"attendance\":94.47999999996884,\"attendedMinutes\":3779.199999998754,\"midterm\":39,\"final\":51,\"project\":63.85210000003503,\"grade\":53}],\"relationships\":[{\"id\":1,\"affinity\":100,\"encounters\":112,\"sharedMeals\":161,\"studySessions\":112,\"lastDay\":112,\"trust\":33.06849999997749,\"friendship\":71.02007999993245,\"romance\":0,\"status\":\"friend\",\"sharedActivities\":273,\"dates\":0,\"lastWeek\":16,\"declinedUntil\":0,\"neglectedWeeks\":0,\"lastConversation\":null,\"friendSince\":52},{\"id\":2,\"affinity\":100,\"encounters\":112,\"sharedMeals\":208,\"studySessions\":112,\"lastDay\":112,\"trust\":100,\"friendship\":100,\"romance\":86.53279999991923,\"status\":\"dating\",\"sharedActivities\":623,\"dates\":5,\"lastWeek\":16,\"declinedUntil\":0,\"neglectedWeeks\":0,\"lastConversation\":\"서로의 마음을 확인하고 천천히 만나기로 했어요.\",\"friendSince\":14},{\"id\":3,\"affinity\":36.56000000000023,\"encounters\":3,\"sharedMeals\":2,\"studySessions\":2,\"lastDay\":56,\"trust\":0,\"friendship\":0,\"romance\":0,\"status\":\"acquaintance\",\"sharedActivities\":2,\"dates\":0,\"lastWeek\":8,\"declinedUntil\":0,\"neglectedWeeks\":0,\"lastConversation\":null}],\"money\":264000}"
+    },
+    {
+      "name": "romance: progress and milestone dates remain valid throughout the semester",
+      "pass": true,
+      "detail": "{\"invalidProgress\":0,\"prematureDates\":0,\"unlocks\":[{\"id\":\"first-time\",\"day\":1,\"week\":1,\"record\":{\"id\":\"first-time\",\"title\":\"조금 더 알고 싶은 사람\",\"detail\":\"같은 장소에서 함께 시간을 보내며 서로를 알아봤어요.\",\"done\":true,\"day\":1,\"week\":1}},{\"id\":\"safe-trust\",\"day\":16,\"week\":3,\"record\":{\"id\":\"safe-trust\",\"title\":\"서두르지 않아도 괜찮아\",\"detail\":\"작은 약속을 지키며 솔직하게 말할 수 있는 사이가 되었어요.\",\"done\":true,\"day\":16,\"week\":3}},{\"id\":\"mutual-feelings\",\"day\":38,\"week\":6,\"record\":{\"id\":\"mutual-feelings\",\"title\":\"서로 확인한 마음\",\"detail\":\"충분히 알아간 뒤, 두 사람이 같은 마음에 동의했어요.\",\"done\":true,\"day\":38,\"week\":6}},{\"id\":\"three-dates\",\"day\":73,\"week\":11,\"record\":{\"id\":\"three-dates\",\"title\":\"우리만 아는 익숙한 길\",\"detail\":\"연인이 된 뒤에도 실제로 만나 세 번의 데이트를 쌓았어요.\",\"done\":true,\"day\":73,\"week\":11}}]}"
+    },
+    {
+      "name": "romance: a first earned milestone appears within the first three actual days",
+      "pass": true,
+      "detail": "[{\"id\":\"first-time\",\"day\":1,\"done\":true},{\"id\":\"safe-trust\",\"day\":16,\"done\":true},{\"id\":\"mutual-feelings\",\"day\":38,\"done\":true},{\"id\":\"three-dates\",\"day\":73,\"done\":true},{\"id\":\"wish-realized\",\"day\":112,\"done\":true}]"
+    },
+    {
+      "name": "romance: every unlocked milestone is supported by actual activity, relationship or academic results",
+      "pass": true,
+      "detail": "{\"unsupportedMilestones\":[],\"milestones\":[{\"id\":\"first-time\",\"title\":\"조금 더 알고 싶은 사람\",\"detail\":\"같은 장소에서 함께 시간을 보내며 서로를 알아봤어요.\",\"done\":true,\"day\":1,\"week\":1},{\"id\":\"safe-trust\",\"title\":\"서두르지 않아도 괜찮아\",\"detail\":\"작은 약속을 지키며 솔직하게 말할 수 있는 사이가 되었어요.\",\"done\":true,\"day\":16,\"week\":3},{\"id\":\"mutual-feelings\",\"title\":\"서로 확인한 마음\",\"detail\":\"충분히 알아간 뒤, 두 사람이 같은 마음에 동의했어요.\",\"done\":true,\"day\":38,\"week\":6},{\"id\":\"three-dates\",\"title\":\"우리만 아는 익숙한 길\",\"detail\":\"연인이 된 뒤에도 실제로 만나 세 번의 데이트를 쌓았어요.\",\"done\":true,\"day\":73,\"week\":11},{\"id\":\"wish-realized\",\"title\":\"함께 걸은 한 계절\",\"detail\":\"서로의 속도를 존중하며 한 학기를 함께 걸었어요.\",\"done\":true,\"day\":112,\"week\":16}]}"
+    },
+    {
+      "name": "romance: the observer receives recorded moments while life progresses",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "romance: completion is the only permanent stop and survives saving",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "independent: all 112 days pass after just one start, without any player choice",
+      "pass": true,
+      "detail": "112 days; 8683 observation samples"
+    },
+    {
+      "name": "independent: no planner, review or Wednesday choice interrupts observation",
+      "pass": true,
+      "detail": "0 blocked states; 0 unresolved choices"
+    },
+    {
+      "name": "independent: every week produces its own plan and retained review",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "independent: all 16 weekly decisions are explicitly recorded as autonomous",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "independent: actual activities and course results occur without supervision",
+      "pass": true,
+      "detail": "{\"class\":604,\"exercise\":904,\"social\":854,\"study\":2121,\"eat\":427,\"rest\":786,\"sleep\":2987}"
+    },
+    {
+      "name": "independent: the selected long-term wish is achievable with no encouragement",
+      "pass": true,
+      "detail": "{\"ending\":{\"title\":\"내 생활을 꾸려 가는 사람\",\"text\":\"처음 정한 바람이 매일의 행동과 만남을 거쳐 현실이 되었어요.\",\"goal\":\"independent\",\"success\":true,\"highlights\":[\"두 과목 평균 48.5점\",\"기억에 남은 친구 2명\",\"학기 말 생활비 3,894,000원\",\"112일의 캠퍼스 생활을 마쳤어요. 다음은 겨울방학이에요.\"]},\"growth\":{\"knowledge\":50.53646000006077,\"expression\":21.34875000000859,\"independence\":76.82320000006462},\"courses\":[{\"id\":\"foundation\",\"title\":\"창의적 공학설계\",\"knowledge\":52.329500000120404,\"attendance\":99.78499999996401,\"attendedMinutes\":3991.399999998561,\"midterm\":41,\"final\":56,\"project\":15.259699999991645,\"grade\":49},{\"id\":\"seminar\",\"title\":\"사고와 표현\",\"knowledge\":48.27650000011779,\"attendance\":99.82999999996397,\"attendedMinutes\":3993.199999998559,\"midterm\":41,\"final\":54,\"project\":15.185899999991065,\"grade\":48}],\"relationships\":[{\"id\":1,\"affinity\":100,\"encounters\":112,\"sharedMeals\":206,\"studySessions\":112,\"lastDay\":112,\"trust\":33.19999999997811,\"friendship\":71.7569599999282,\"romance\":0,\"status\":\"friend\",\"sharedActivities\":222,\"dates\":0,\"lastWeek\":16,\"declinedUntil\":0,\"neglectedWeeks\":0,\"lastConversation\":null,\"friendSince\":51},{\"id\":2,\"affinity\":100,\"encounters\":75,\"sharedMeals\":95,\"studySessions\":70,\"lastDay\":112,\"trust\":18.088500000003044,\"friendship\":33.009600000011964,\"romance\":0,\"status\":\"friend\",\"sharedActivities\":127,\"dates\":0,\"lastWeek\":16,\"declinedUntil\":0,\"neglectedWeeks\":0,\"lastConversation\":null},{\"id\":3,\"affinity\":100,\"encounters\":112,\"sharedMeals\":114,\"studySessions\":112,\"lastDay\":112,\"trust\":91.85420000000121,\"friendship\":100,\"romance\":10.890000000001056,\"status\":\"close\",\"sharedActivities\":449,\"dates\":0,\"lastWeek\":16,\"declinedUntil\":0,\"neglectedWeeks\":0,\"lastConversation\":null,\"friendSince\":19}],\"money\":3894000}"
+    },
+    {
+      "name": "independent: progress and milestone dates remain valid throughout the semester",
+      "pass": true,
+      "detail": "{\"invalidProgress\":0,\"prematureDates\":0,\"unlocks\":[{\"id\":\"first-shift\",\"day\":1,\"week\":1,\"record\":{\"id\":\"first-shift\",\"title\":\"처음 맡아 본 내 일\",\"detail\":\"학생복지관에서 맡은 일을 직접 해냈어요.\",\"done\":true,\"day\":1,\"week\":1}},{\"id\":\"own-money\",\"day\":3,\"week\":1,\"record\":{\"id\":\"own-money\",\"title\":\"내가 마련한 생활비\",\"detail\":\"실제 근무로 번 돈이 내 생활의 일부가 됐어요.\",\"done\":true,\"day\":3,\"week\":1}},{\"id\":\"standing-up\",\"day\":39,\"week\":6,\"record\":{\"id\":\"standing-up\",\"title\":\"조금은 익숙해진 어른의 하루\",\"detail\":\"근무와 회복을 스스로 챙기는 힘이 자랐어요.\",\"done\":true,\"day\":39,\"week\":6}},{\"id\":\"breathing-room\",\"day\":89,\"week\":13,\"record\":{\"id\":\"breathing-room\",\"title\":\"나를 돌볼 여유\",\"detail\":\"생활비와 자립의 힘을 함께 쌓아 조금 숨을 돌릴 수 있어요.\",\"done\":true,\"day\":89,\"week\":13}}]}"
+    },
+    {
+      "name": "independent: a first earned milestone appears within the first three actual days",
+      "pass": true,
+      "detail": "[{\"id\":\"first-shift\",\"day\":1,\"done\":true},{\"id\":\"own-money\",\"day\":3,\"done\":true},{\"id\":\"standing-up\",\"day\":39,\"done\":true},{\"id\":\"breathing-room\",\"day\":89,\"done\":true},{\"id\":\"wish-realized\",\"day\":112,\"done\":true}]"
+    },
+    {
+      "name": "independent: every unlocked milestone is supported by actual activity, relationship or academic results",
+      "pass": true,
+      "detail": "{\"unsupportedMilestones\":[],\"milestones\":[{\"id\":\"first-shift\",\"title\":\"처음 맡아 본 내 일\",\"detail\":\"학생복지관에서 맡은 일을 직접 해냈어요.\",\"done\":true,\"day\":1,\"week\":1},{\"id\":\"own-money\",\"title\":\"내가 마련한 생활비\",\"detail\":\"실제 근무로 번 돈이 내 생활의 일부가 됐어요.\",\"done\":true,\"day\":3,\"week\":1},{\"id\":\"standing-up\",\"title\":\"조금은 익숙해진 어른의 하루\",\"detail\":\"근무와 회복을 스스로 챙기는 힘이 자랐어요.\",\"done\":true,\"day\":39,\"week\":6},{\"id\":\"breathing-room\",\"title\":\"나를 돌볼 여유\",\"detail\":\"생활비와 자립의 힘을 함께 쌓아 조금 숨을 돌릴 수 있어요.\",\"done\":true,\"day\":89,\"week\":13},{\"id\":\"wish-realized\",\"title\":\"내 힘으로 살아 본 학기\",\"detail\":\"열여섯 주의 작은 선택이 나를 지탱하는 힘이 되었어요.\",\"done\":true,\"day\":112,\"week\":16}]}"
+    },
+    {
+      "name": "independent: the observer receives recorded moments while life progresses",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "independent: completion is the only permanent stop and survives saving",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "decision: observation state and milestones roundtrip exactly",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "decision: the restored student makes the same later plans and choices",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "decision: the saved future comparison crosses a real automatic choice",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "relationship: observation state and milestones roundtrip exactly",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "relationship: the restored student makes the same later plans and choices",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "relationship: the saved future comparison crosses a real automatic plan",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Both a midweek-decision and a relationship-review checkpoint were exercised",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "An old completed semester keeps its ending, results and clock",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Observed students never enter a building",
+      "pass": true,
+      "detail": "625176 sampled positions; 0 collisions"
+    },
+    {
+      "name": "Observed students keep finite needs and remain on connected pedestrian edges",
+      "pass": true,
+      "detail": "0 invalid states; 0 off-route samples"
+    }
+  ],
+  "stats": {
+    "strategies": {
+      "scholar": {
+        "days": 112,
+        "goalSuccess": true,
+        "grades": [
+          83,
+          82
+        ],
+        "growth": {
+          "knowledge": 100,
+          "expression": 14.191499999999769,
+          "independence": 10
+        },
+        "money": 264000,
+        "stress": 0.4050000000000017,
+        "plans": [
+          {
+            "week": 1,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "rest"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 2,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "rest"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 3,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "rest"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 4,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "rest"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 5,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "rest"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 6,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "rest"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 7,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 8,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 9,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "rest"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 10,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "rest"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 11,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "rest"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 12,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "rest"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 13,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "rest"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 14,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 15,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          },
+          {
+            "week": 16,
+            "days": [
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "study",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ],
+              [
+                "study",
+                "rest",
+                "study"
+              ]
+            ],
+            "focusId": 1
+          }
+        ],
+        "actions": {
+          "class": 613,
+          "study": 3786,
+          "eat": 422,
+          "rest": 439,
+          "social": 480,
+          "sleep": 2943
+        },
+        "milestones": [
+          {
+            "id": "first-study",
+            "title": "백남에서 처음 펼친 노트",
+            "detail": "궁금했던 내용을 스스로 찾아 읽었어요.",
+            "done": true,
+            "day": 1,
+            "week": 1
+          },
+          {
+            "id": "shared-notes",
+            "title": "같이 풀어 본 작은 질문",
+            "detail": "혼자 막혔던 부분을 친구와 노트를 맞춰 보며 배웠어요.",
+            "done": true,
+            "day": 1,
+            "week": 1
+          },
+          {
+            "id": "project-piece",
+            "title": "내가 만든 과제의 한 조각",
+            "detail": "실제 복습과 협업이 손에 잡히는 결과물로 남기 시작했어요.",
+            "done": true,
+            "day": 42,
+            "week": 6
+          },
+          {
+            "id": "first-exam",
+            "title": "시험장에서 떠오른 배움",
+            "detail": "함께 공부했던 내용으로 첫 시험을 풀어 냈어요.",
+            "done": true,
+            "day": 52,
+            "week": 8
+          },
+          {
+            "id": "wish-realized",
+            "title": "한 학기만큼 자란 질문",
+            "detail": "112일의 배움이 나만의 자신감으로 남았어요.",
+            "done": true,
+            "day": 112,
+            "week": 16
+          }
+        ],
+        "unlocks": [
+          {
+            "id": "first-study",
+            "day": 1,
+            "week": 1,
+            "record": {
+              "id": "first-study",
+              "title": "백남에서 처음 펼친 노트",
+              "detail": "궁금했던 내용을 스스로 찾아 읽었어요.",
+              "done": true,
+              "day": 1,
+              "week": 1
+            }
+          },
+          {
+            "id": "shared-notes",
+            "day": 1,
+            "week": 1,
+            "record": {
+              "id": "shared-notes",
+              "title": "같이 풀어 본 작은 질문",
+              "detail": "혼자 막혔던 부분을 친구와 노트를 맞춰 보며 배웠어요.",
+              "done": true,
+              "day": 1,
+              "week": 1
+            }
+          },
+          {
+            "id": "project-piece",
+            "day": 42,
+            "week": 6,
+            "record": {
+              "id": "project-piece",
+              "title": "내가 만든 과제의 한 조각",
+              "detail": "실제 복습과 협업이 손에 잡히는 결과물로 남기 시작했어요.",
+              "done": true,
+              "day": 42,
+              "week": 6
+            }
+          },
+          {
+            "id": "first-exam",
+            "day": 52,
+            "week": 8,
+            "record": {
+              "id": "first-exam",
+              "title": "시험장에서 떠오른 배움",
+              "detail": "함께 공부했던 내용으로 첫 시험을 풀어 냈어요.",
+              "done": true,
+              "day": 52,
+              "week": 8
+            }
+          }
+        ],
+        "relationships": [
+          {
+            "id": 1,
+            "name": "이도윤",
+            "affinity": 100,
+            "encounters": 112,
+            "sharedMeals": 208,
+            "studySessions": 112,
+            "lastDay": 112,
+            "trust": 100,
+            "friendship": 100,
+            "romance": 1.6199999999999521,
+            "status": "close",
+            "sharedActivities": 687,
+            "dates": 0,
+            "lastWeek": 16,
+            "declinedUntil": 0,
+            "neglectedWeeks": 0,
+            "lastConversation": null,
+            "friendSince": 15
+          },
+          {
+            "id": 2,
+            "name": "박서연",
+            "affinity": 81.891999999847,
+            "encounters": 15,
+            "sharedMeals": 1,
+            "studySessions": 3,
+            "lastDay": 112,
+            "trust": 0,
+            "friendship": 0,
+            "romance": 0,
+            "status": "acquaintance",
+            "sharedActivities": 3,
+            "dates": 0,
+            "lastWeek": 16,
+            "declinedUntil": 0,
+            "neglectedWeeks": 0,
+            "lastConversation": null
+          },
+          {
+            "id": 3,
+            "name": "정지우",
+            "affinity": 100,
+            "encounters": 84,
+            "sharedMeals": 151,
+            "studySessions": 83,
+            "lastDay": 112,
+            "trust": 23.67199999999109,
+            "friendship": 43.81279999998657,
+            "romance": 0,
+            "status": "friend",
+            "sharedActivities": 155,
+            "dates": 0,
+            "lastWeek": 16,
+            "declinedUntil": 0,
+            "neglectedWeeks": 0,
+            "lastConversation": null,
+            "friendSince": 96
+          }
+        ],
+        "ending": {
+          "title": "나의 질문이 자란 학기",
+          "text": "처음 정한 바람이 매일의 행동과 만남을 거쳐 현실이 되었어요.",
+          "goal": "scholar",
+          "success": true,
+          "highlights": [
+            "두 과목 평균 82.5점",
+            "기억에 남은 친구 2명",
+            "학기 말 생활비 264,000원",
+            "112일의 캠퍼스 생활을 마쳤어요. 다음은 겨울방학이에요."
+          ]
+        }
+      },
+      "friendship": {
+        "days": 112,
+        "goalSuccess": true,
+        "grades": [
+          43,
+          52
+        ],
+        "growth": {
+          "knowledge": 42.59089999998277,
+          "expression": 100,
+          "independence": 10
+        },
+        "money": 264000,
+        "stress": 0.13500000000000034,
+        "plans": [
+          {
+            "week": 1,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 2,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 3,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 4,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 5,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 6,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 7,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 8,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 9,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 10,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 11,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 12,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 13,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 14,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 15,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 16,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 3
+          }
+        ],
+        "actions": {
+          "class": 506,
+          "social": 2985,
+          "study": 1644,
+          "eat": 428,
+          "rest": 165,
+          "sleep": 2955
+        },
+        "milestones": [
+          {
+            "id": "first-hello",
+            "title": "낯선 이름에 건넨 인사",
+            "detail": "같은 캠퍼스의 누군가와 처음 인사를 나눴어요.",
+            "done": true,
+            "day": 1,
+            "week": 1
+          },
+          {
+            "id": "shared-table",
+            "title": "함께 앉은 첫 식탁",
+            "detail": "평범한 밥 한 끼가 함께 기억하는 장면이 됐어요.",
+            "done": true,
+            "day": 1,
+            "week": 1
+          },
+          {
+            "id": "trusted-friend",
+            "title": "먼저 떠오르는 친구",
+            "detail": "편하게 이야기하고 서로를 믿는 사람이 생겼어요.",
+            "done": true,
+            "day": 19,
+            "week": 3
+          },
+          {
+            "id": "friend-circle",
+            "title": "함께 웃을 우리",
+            "detail": "각자 다른 두 사람과 오랜 시간을 쌓았어요.",
+            "done": true,
+            "day": 53,
+            "week": 8
+          },
+          {
+            "id": "wish-realized",
+            "title": "캠퍼스에 남은 내 편",
+            "detail": "처음의 작은 인사가 한 학기의 우정이 되었어요.",
+            "done": true,
+            "day": 112,
+            "week": 16
+          }
+        ],
+        "unlocks": [
+          {
+            "id": "first-hello",
+            "day": 1,
+            "week": 1,
+            "record": {
+              "id": "first-hello",
+              "title": "낯선 이름에 건넨 인사",
+              "detail": "같은 캠퍼스의 누군가와 처음 인사를 나눴어요.",
+              "done": true,
+              "day": 1,
+              "week": 1
+            }
+          },
+          {
+            "id": "shared-table",
+            "day": 1,
+            "week": 1,
+            "record": {
+              "id": "shared-table",
+              "title": "함께 앉은 첫 식탁",
+              "detail": "평범한 밥 한 끼가 함께 기억하는 장면이 됐어요.",
+              "done": true,
+              "day": 1,
+              "week": 1
+            }
+          },
+          {
+            "id": "trusted-friend",
+            "day": 19,
+            "week": 3,
+            "record": {
+              "id": "trusted-friend",
+              "title": "먼저 떠오르는 친구",
+              "detail": "편하게 이야기하고 서로를 믿는 사람이 생겼어요.",
+              "done": true,
+              "day": 19,
+              "week": 3
+            }
+          },
+          {
+            "id": "friend-circle",
+            "day": 53,
+            "week": 8,
+            "record": {
+              "id": "friend-circle",
+              "title": "함께 웃을 우리",
+              "detail": "각자 다른 두 사람과 오랜 시간을 쌓았어요.",
+              "done": true,
+              "day": 53,
+              "week": 8
+            }
+          }
+        ],
+        "relationships": [
+          {
+            "id": 1,
+            "name": "이도윤",
+            "affinity": 100,
+            "encounters": 112,
+            "sharedMeals": 198,
+            "studySessions": 112,
+            "lastDay": 112,
+            "trust": 33.06849999997749,
+            "friendship": 71.02551999993231,
+            "romance": 0,
+            "status": "friend",
+            "sharedActivities": 300,
+            "dates": 0,
+            "lastWeek": 16,
+            "declinedUntil": 0,
+            "neglectedWeeks": 0,
+            "lastConversation": null,
+            "friendSince": 52
+          },
+          {
+            "id": 2,
+            "name": "박서연",
+            "affinity": 100,
+            "encounters": 112,
+            "sharedMeals": 206,
+            "studySessions": 104,
+            "lastDay": 112,
+            "trust": 80.24000000004104,
+            "friendship": 100,
+            "romance": 40.07279999999571,
+            "status": "close",
+            "sharedActivities": 508,
+            "dates": 0,
+            "lastWeek": 16,
+            "declinedUntil": 0,
+            "neglectedWeeks": 0,
+            "lastConversation": null,
+            "friendSince": 19
+          },
+          {
+            "id": 3,
+            "name": "정지우",
+            "affinity": 100,
+            "encounters": 108,
+            "sharedMeals": 18,
+            "studySessions": 93,
+            "lastDay": 112,
+            "trust": 70.45090000000832,
+            "friendship": 100,
+            "romance": 35.81600000000971,
+            "status": "close",
+            "sharedActivities": 250,
+            "dates": 0,
+            "lastWeek": 16,
+            "declinedUntil": 0,
+            "neglectedWeeks": 0,
+            "lastConversation": null,
+            "friendSince": 28
+          }
+        ],
+        "ending": {
+          "title": "캠퍼스에 내 편이 생겼다",
+          "text": "처음 정한 바람이 매일의 행동과 만남을 거쳐 현실이 되었어요.",
+          "goal": "friendship",
+          "success": true,
+          "highlights": [
+            "두 과목 평균 47.5점",
+            "기억에 남은 친구 3명",
+            "학기 말 생활비 264,000원",
+            "112일의 캠퍼스 생활을 마쳤어요. 다음은 겨울방학이에요."
+          ]
+        }
+      },
+      "romance": {
+        "days": 112,
+        "goalSuccess": true,
+        "grades": [
+          43,
+          53
+        ],
+        "growth": {
+          "knowledge": 42.75317999998493,
+          "expression": 90.8265000000354,
+          "independence": 10
+        },
+        "money": 264000,
+        "stress": 0,
+        "plans": [
+          {
+            "week": 1,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 2,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 3,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 4,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 5,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 6,
+            "days": [
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ],
+              [
+                "friend",
+                "club",
+                "friend"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 7,
+            "days": [
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 8,
+            "days": [
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 9,
+            "days": [
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 10,
+            "days": [
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 11,
+            "days": [
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 12,
+            "days": [
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 13,
+            "days": [
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 14,
+            "days": [
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 15,
+            "days": [
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 2
+          },
+          {
+            "week": 16,
+            "days": [
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ],
+              [
+                "club",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 2
+          }
+        ],
+        "actions": {
+          "class": 505,
+          "social": 2781,
+          "study": 1658,
+          "eat": 421,
+          "rest": 369,
+          "sleep": 2949
+        },
+        "milestones": [
+          {
+            "id": "first-time",
+            "title": "조금 더 알고 싶은 사람",
+            "detail": "같은 장소에서 함께 시간을 보내며 서로를 알아봤어요.",
+            "done": true,
+            "day": 1,
+            "week": 1
+          },
+          {
+            "id": "safe-trust",
+            "title": "서두르지 않아도 괜찮아",
+            "detail": "작은 약속을 지키며 솔직하게 말할 수 있는 사이가 되었어요.",
+            "done": true,
+            "day": 16,
+            "week": 3
+          },
+          {
+            "id": "mutual-feelings",
+            "title": "서로 확인한 마음",
+            "detail": "충분히 알아간 뒤, 두 사람이 같은 마음에 동의했어요.",
+            "done": true,
+            "day": 38,
+            "week": 6
+          },
+          {
+            "id": "three-dates",
+            "title": "우리만 아는 익숙한 길",
+            "detail": "연인이 된 뒤에도 실제로 만나 세 번의 데이트를 쌓았어요.",
+            "done": true,
+            "day": 73,
+            "week": 11
+          },
+          {
+            "id": "wish-realized",
+            "title": "함께 걸은 한 계절",
+            "detail": "서로의 속도를 존중하며 한 학기를 함께 걸었어요.",
+            "done": true,
+            "day": 112,
+            "week": 16
+          }
+        ],
+        "unlocks": [
+          {
+            "id": "first-time",
+            "day": 1,
+            "week": 1,
+            "record": {
+              "id": "first-time",
+              "title": "조금 더 알고 싶은 사람",
+              "detail": "같은 장소에서 함께 시간을 보내며 서로를 알아봤어요.",
+              "done": true,
+              "day": 1,
+              "week": 1
+            }
+          },
+          {
+            "id": "safe-trust",
+            "day": 16,
+            "week": 3,
+            "record": {
+              "id": "safe-trust",
+              "title": "서두르지 않아도 괜찮아",
+              "detail": "작은 약속을 지키며 솔직하게 말할 수 있는 사이가 되었어요.",
+              "done": true,
+              "day": 16,
+              "week": 3
+            }
+          },
+          {
+            "id": "mutual-feelings",
+            "day": 38,
+            "week": 6,
+            "record": {
+              "id": "mutual-feelings",
+              "title": "서로 확인한 마음",
+              "detail": "충분히 알아간 뒤, 두 사람이 같은 마음에 동의했어요.",
+              "done": true,
+              "day": 38,
+              "week": 6
+            }
+          },
+          {
+            "id": "three-dates",
+            "day": 73,
+            "week": 11,
+            "record": {
+              "id": "three-dates",
+              "title": "우리만 아는 익숙한 길",
+              "detail": "연인이 된 뒤에도 실제로 만나 세 번의 데이트를 쌓았어요.",
+              "done": true,
+              "day": 73,
+              "week": 11
+            }
+          }
+        ],
+        "relationships": [
+          {
+            "id": 1,
+            "name": "이도윤",
+            "affinity": 100,
+            "encounters": 112,
+            "sharedMeals": 161,
+            "studySessions": 112,
+            "lastDay": 112,
+            "trust": 33.06849999997749,
+            "friendship": 71.02007999993245,
+            "romance": 0,
+            "status": "friend",
+            "sharedActivities": 273,
+            "dates": 0,
+            "lastWeek": 16,
+            "declinedUntil": 0,
+            "neglectedWeeks": 0,
+            "lastConversation": null,
+            "friendSince": 52
+          },
+          {
+            "id": 2,
+            "name": "박서연",
+            "affinity": 100,
+            "encounters": 112,
+            "sharedMeals": 208,
+            "studySessions": 112,
+            "lastDay": 112,
+            "trust": 100,
+            "friendship": 100,
+            "romance": 86.53279999991923,
+            "status": "dating",
+            "sharedActivities": 623,
+            "dates": 5,
+            "lastWeek": 16,
+            "declinedUntil": 0,
+            "neglectedWeeks": 0,
+            "lastConversation": "서로의 마음을 확인하고 천천히 만나기로 했어요.",
+            "friendSince": 14
+          },
+          {
+            "id": 3,
+            "name": "정지우",
+            "affinity": 36.56000000000023,
+            "encounters": 3,
+            "sharedMeals": 2,
+            "studySessions": 2,
+            "lastDay": 56,
+            "trust": 0,
+            "friendship": 0,
+            "romance": 0,
+            "status": "acquaintance",
+            "sharedActivities": 2,
+            "dates": 0,
+            "lastWeek": 8,
+            "declinedUntil": 0,
+            "neglectedWeeks": 0,
+            "lastConversation": null
+          }
+        ],
+        "ending": {
+          "title": "함께 걷게 된 계절",
+          "text": "처음 정한 바람이 매일의 행동과 만남을 거쳐 현실이 되었어요.",
+          "goal": "romance",
+          "success": true,
+          "highlights": [
+            "두 과목 평균 48.0점",
+            "기억에 남은 친구 2명",
+            "학기 말 생활비 264,000원",
+            "112일의 캠퍼스 생활을 마쳤어요. 다음은 겨울방학이에요."
+          ]
+        }
+      },
+      "independent": {
+        "days": 112,
+        "goalSuccess": true,
+        "grades": [
+          49,
+          48
+        ],
+        "growth": {
+          "knowledge": 50.53646000006077,
+          "expression": 21.34875000000859,
+          "independence": 76.82320000006462
+        },
+        "money": 3894000,
+        "stress": 2.0269999999995703,
+        "plans": [
+          {
+            "week": 1,
+            "days": [
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 2,
+            "days": [
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 3,
+            "days": [
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 4,
+            "days": [
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 5,
+            "days": [
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 6,
+            "days": [
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 7,
+            "days": [
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 8,
+            "days": [
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 9,
+            "days": [
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 10,
+            "days": [
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 11,
+            "days": [
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 12,
+            "days": [
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 13,
+            "days": [
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 14,
+            "days": [
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 15,
+            "days": [
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          },
+          {
+            "week": 16,
+            "days": [
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "study",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "work",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ],
+              [
+                "work",
+                "friend",
+                "rest"
+              ]
+            ],
+            "focusId": 3
+          }
+        ],
+        "actions": {
+          "class": 604,
+          "exercise": 904,
+          "social": 854,
+          "study": 2121,
+          "eat": 427,
+          "rest": 786,
+          "sleep": 2987
+        },
+        "milestones": [
+          {
+            "id": "first-shift",
+            "title": "처음 맡아 본 내 일",
+            "detail": "학생복지관에서 맡은 일을 직접 해냈어요.",
+            "done": true,
+            "day": 1,
+            "week": 1
+          },
+          {
+            "id": "own-money",
+            "title": "내가 마련한 생활비",
+            "detail": "실제 근무로 번 돈이 내 생활의 일부가 됐어요.",
+            "done": true,
+            "day": 3,
+            "week": 1
+          },
+          {
+            "id": "standing-up",
+            "title": "조금은 익숙해진 어른의 하루",
+            "detail": "근무와 회복을 스스로 챙기는 힘이 자랐어요.",
+            "done": true,
+            "day": 39,
+            "week": 6
+          },
+          {
+            "id": "breathing-room",
+            "title": "나를 돌볼 여유",
+            "detail": "생활비와 자립의 힘을 함께 쌓아 조금 숨을 돌릴 수 있어요.",
+            "done": true,
+            "day": 89,
+            "week": 13
+          },
+          {
+            "id": "wish-realized",
+            "title": "내 힘으로 살아 본 학기",
+            "detail": "열여섯 주의 작은 선택이 나를 지탱하는 힘이 되었어요.",
+            "done": true,
+            "day": 112,
+            "week": 16
+          }
+        ],
+        "unlocks": [
+          {
+            "id": "first-shift",
+            "day": 1,
+            "week": 1,
+            "record": {
+              "id": "first-shift",
+              "title": "처음 맡아 본 내 일",
+              "detail": "학생복지관에서 맡은 일을 직접 해냈어요.",
+              "done": true,
+              "day": 1,
+              "week": 1
+            }
+          },
+          {
+            "id": "own-money",
+            "day": 3,
+            "week": 1,
+            "record": {
+              "id": "own-money",
+              "title": "내가 마련한 생활비",
+              "detail": "실제 근무로 번 돈이 내 생활의 일부가 됐어요.",
+              "done": true,
+              "day": 3,
+              "week": 1
+            }
+          },
+          {
+            "id": "standing-up",
+            "day": 39,
+            "week": 6,
+            "record": {
+              "id": "standing-up",
+              "title": "조금은 익숙해진 어른의 하루",
+              "detail": "근무와 회복을 스스로 챙기는 힘이 자랐어요.",
+              "done": true,
+              "day": 39,
+              "week": 6
+            }
+          },
+          {
+            "id": "breathing-room",
+            "day": 89,
+            "week": 13,
+            "record": {
+              "id": "breathing-room",
+              "title": "나를 돌볼 여유",
+              "detail": "생활비와 자립의 힘을 함께 쌓아 조금 숨을 돌릴 수 있어요.",
+              "done": true,
+              "day": 89,
+              "week": 13
+            }
+          }
+        ],
+        "relationships": [
+          {
+            "id": 1,
+            "name": "이도윤",
+            "affinity": 100,
+            "encounters": 112,
+            "sharedMeals": 206,
+            "studySessions": 112,
+            "lastDay": 112,
+            "trust": 33.19999999997811,
+            "friendship": 71.7569599999282,
+            "romance": 0,
+            "status": "friend",
+            "sharedActivities": 222,
+            "dates": 0,
+            "lastWeek": 16,
+            "declinedUntil": 0,
+            "neglectedWeeks": 0,
+            "lastConversation": null,
+            "friendSince": 51
+          },
+          {
+            "id": 2,
+            "name": "박서연",
+            "affinity": 100,
+            "encounters": 75,
+            "sharedMeals": 95,
+            "studySessions": 70,
+            "lastDay": 112,
+            "trust": 18.088500000003044,
+            "friendship": 33.009600000011964,
+            "romance": 0,
+            "status": "friend",
+            "sharedActivities": 127,
+            "dates": 0,
+            "lastWeek": 16,
+            "declinedUntil": 0,
+            "neglectedWeeks": 0,
+            "lastConversation": null
+          },
+          {
+            "id": 3,
+            "name": "정지우",
+            "affinity": 100,
+            "encounters": 112,
+            "sharedMeals": 114,
+            "studySessions": 112,
+            "lastDay": 112,
+            "trust": 91.85420000000121,
+            "friendship": 100,
+            "romance": 10.890000000001056,
+            "status": "close",
+            "sharedActivities": 449,
+            "dates": 0,
+            "lastWeek": 16,
+            "declinedUntil": 0,
+            "neglectedWeeks": 0,
+            "lastConversation": null,
+            "friendSince": 19
+          }
+        ],
+        "ending": {
+          "title": "내 생활을 꾸려 가는 사람",
+          "text": "처음 정한 바람이 매일의 행동과 만남을 거쳐 현실이 되었어요.",
+          "goal": "independent",
+          "success": true,
+          "highlights": [
+            "두 과목 평균 48.5점",
+            "기억에 남은 친구 2명",
+            "학기 말 생활비 3,894,000원",
+            "112일의 캠퍼스 생활을 마쳤어요. 다음은 겨울방학이에요."
+          ]
+        }
+      }
+    },
+    "positionSamples": 625176,
+    "collisions": 0,
+    "offRoute": 0,
+    "invalidStates": 0,
+    "manualChoices": 0,
+    "encouragementsInFullRuns": 0,
+    "planExamples": {
+      "traitPlans": {
+        "curious": [
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "rest",
+            "study"
+          ],
+          [
+            "study",
+            "rest",
+            "study"
+          ]
+        ],
+        "diligent": [
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "rest"
+          ],
+          [
+            "study",
+            "rest",
+            "study"
+          ],
+          [
+            "study",
+            "rest",
+            "study"
+          ]
+        ],
+        "social": [
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "friend",
+            "study"
+          ],
+          [
+            "study",
+            "friend",
+            "study"
+          ]
+        ]
+      },
+      "goalPlans": {
+        "scholar": [
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "study",
+            "study"
+          ],
+          [
+            "study",
+            "rest",
+            "study"
+          ],
+          [
+            "study",
+            "rest",
+            "study"
+          ]
+        ],
+        "friendship": [
+          [
+            "study",
+            "friend",
+            "club"
+          ],
+          [
+            "study",
+            "friend",
+            "club"
+          ],
+          [
+            "study",
+            "friend",
+            "club"
+          ],
+          [
+            "study",
+            "friend",
+            "club"
+          ],
+          [
+            "study",
+            "friend",
+            "club"
+          ],
+          [
+            "study",
+            "friend",
+            "club"
+          ],
+          [
+            "study",
+            "friend",
+            "rest"
+          ]
+        ],
+        "romance": [
+          [
+            "friend",
+            "club",
+            "friend"
+          ],
+          [
+            "friend",
+            "club",
+            "friend"
+          ],
+          [
+            "friend",
+            "club",
+            "friend"
+          ],
+          [
+            "friend",
+            "club",
+            "friend"
+          ],
+          [
+            "friend",
+            "club",
+            "friend"
+          ],
+          [
+            "friend",
+            "club",
+            "friend"
+          ],
+          [
+            "friend",
+            "club",
+            "friend"
+          ]
+        ],
+        "independent": [
+          [
+            "work",
+            "work",
+            "rest"
+          ],
+          [
+            "work",
+            "work",
+            "rest"
+          ],
+          [
+            "work",
+            "work",
+            "rest"
+          ],
+          [
+            "work",
+            "work",
+            "rest"
+          ],
+          [
+            "work",
+            "work",
+            "rest"
+          ],
+          [
+            "work",
+            "friend",
+            "rest"
+          ],
+          [
+            "work",
+            "friend",
+            "rest"
+          ]
+        ]
+      },
+      "calm": [
+        [
+          "study",
+          "study",
+          "study"
+        ],
+        [
+          "study",
+          "study",
+          "study"
+        ],
+        [
+          "study",
+          "study",
+          "study"
+        ],
+        [
+          "study",
+          "study",
+          "study"
+        ],
+        [
+          "study",
+          "study",
+          "rest"
+        ],
+        [
+          "study",
+          "rest",
+          "study"
+        ],
+        [
+          "study",
+          "rest",
+          "study"
+        ]
+      ],
+      "tired": [
+        [
+          "study",
+          "study",
+          "rest"
+        ],
+        [
+          "study",
+          "study",
+          "rest"
+        ],
+        [
+          "study",
+          "study",
+          "rest"
+        ],
+        [
+          "study",
+          "study",
+          "rest"
+        ],
+        [
+          "study",
+          "study",
+          "rest"
+        ],
+        [
+          "study",
+          "rest",
+          "rest"
+        ],
+        [
+          "study",
+          "rest",
+          "rest"
+        ]
+      ]
+    }
+  },
+  "runtimeMs": 85924
+}
