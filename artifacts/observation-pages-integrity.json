@@ -1,0 +1,112 @@
+{
+  "pass": true,
+  "sourceCommit": "2b8910c5f4520f1449e042972a8274065ff810a3",
+  "url": "https://jinminchan.github.io/campus_life/",
+  "manifestMatches": true,
+  "checkedFiles": 20,
+  "excludedFiles": [
+    ".nojekyll"
+  ],
+  "checks": [
+    {
+      "file": "LICENSE",
+      "pass": true,
+      "bytes": 1324
+    },
+    {
+      "file": "THIRD_PARTY_NOTICES.md",
+      "pass": true,
+      "bytes": 3339
+    },
+    {
+      "file": "index.html",
+      "pass": true,
+      "bytes": 11975
+    },
+    {
+      "file": "public/data/campus.json",
+      "pass": true,
+      "bytes": 105374
+    },
+    {
+      "file": "public/vendor/OrbitControls.js",
+      "pass": true,
+      "bytes": 32134
+    },
+    {
+      "file": "public/vendor/THREE-LICENSE.txt",
+      "pass": true,
+      "bytes": 1081
+    },
+    {
+      "file": "public/vendor/three.module.js",
+      "pass": true,
+      "bytes": 1314681
+    },
+    {
+      "file": "scripts/observation_checks.mjs",
+      "pass": true,
+      "bytes": 18921
+    },
+    {
+      "file": "scripts/semester_checks.mjs",
+      "pass": true,
+      "bytes": 27702
+    },
+    {
+      "file": "scripts/simulation_checks.mjs",
+      "pass": true,
+      "bytes": 3143
+    },
+    {
+      "file": "src/main.js",
+      "pass": true,
+      "bytes": 23901
+    },
+    {
+      "file": "src/observation.js",
+      "pass": true,
+      "bytes": 21209
+    },
+    {
+      "file": "src/qa.js",
+      "pass": true,
+      "bytes": 11316
+    },
+    {
+      "file": "src/semester-ui.js",
+      "pass": true,
+      "bytes": 20472
+    },
+    {
+      "file": "src/semester.css",
+      "pass": true,
+      "bytes": 26573
+    },
+    {
+      "file": "src/semester.js",
+      "pass": true,
+      "bytes": 46634
+    },
+    {
+      "file": "src/simulation.js",
+      "pass": true,
+      "bytes": 35461
+    },
+    {
+      "file": "src/style.css",
+      "pass": true,
+      "bytes": 22634
+    },
+    {
+      "file": "src/world.js",
+      "pass": true,
+      "bytes": 43305
+    },
+    {
+      "file": "tests.html",
+      "pass": true,
+      "bytes": 1318
+    }
+  ]
+}

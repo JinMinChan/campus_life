@@ -1,0 +1,17 @@
+{
+  "timestamp_utc": "2026-10-25T06:05:50.671353+00:00",
+  "browser": "Google Chrome 145.0.7632.109",
+  "renderer": "ANGLE SwiftShader (headless software WebGL)",
+  "url": "http://127.0.0.1:4173",
+  "cases": [
+    {
+      "case": "simulation",
+      "url": "http://127.0.0.1:4173/tests.html",
+      "pass": true,
+      "checks": 234,
+      "failed": [],
+      "wall_seconds": 127.43
+    }
+  ],
+  "pass": true
+}

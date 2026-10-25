@@ -937,6 +937,11 @@
       "detail": "{\"invalidProgress\":0,\"prematureDates\":0,\"unlocks\":[{\"id\":\"first-study\",\"day\":1,\"week\":1,\"record\":{\"id\":\"first-study\",\"title\":\"백남에서 처음 펼친 노트\",\"detail\":\"궁금했던 내용을 스스로 찾아 읽었어요.\",\"done\":true,\"day\":1,\"week\":1}},{\"id\":\"shared-notes\",\"day\":1,\"week\":1,\"record\":{\"id\":\"shared-notes\",\"title\":\"같이 풀어 본 작은 질문\",\"detail\":\"혼자 막혔던 부분을 친구와 노트를 맞춰 보며 배웠어요.\",\"done\":true,\"day\":1,\"week\":1}},{\"id\":\"project-piece\",\"day\":42,\"week\":6,\"record\":{\"id\":\"project-piece\",\"title\":\"내가 만든 과제의 한 조각\",\"detail\":\"실제 복습과 협업이 손에 잡히는 결과물로 남기 시작했어요.\",\"done\":true,\"day\":42,\"week\":6}},{\"id\":\"first-exam\",\"day\":52,\"week\":8,\"record\":{\"id\":\"first-exam\",\"title\":\"시험장에서 떠오른 배움\",\"detail\":\"함께 공부했던 내용으로 첫 시험을 풀어 냈어요.\",\"done\":true,\"day\":52,\"week\":8}}]}"
     },
     {
+      "name": "scholar: a first earned milestone appears within the first three actual days",
+      "pass": true,
+      "detail": "[{\"id\":\"first-study\",\"day\":1,\"done\":true},{\"id\":\"shared-notes\",\"day\":1,\"done\":true},{\"id\":\"project-piece\",\"day\":42,\"done\":true},{\"id\":\"first-exam\",\"day\":52,\"done\":true},{\"id\":\"wish-realized\",\"day\":112,\"done\":true}]"
+    },
+    {
       "name": "scholar: every unlocked milestone is supported by actual activity, relationship or academic results",
       "pass": true,
       "detail": "{\"unsupportedMilestones\":[],\"milestones\":[{\"id\":\"first-study\",\"title\":\"백남에서 처음 펼친 노트\",\"detail\":\"궁금했던 내용을 스스로 찾아 읽었어요.\",\"done\":true,\"day\":1,\"week\":1},{\"id\":\"shared-notes\",\"title\":\"같이 풀어 본 작은 질문\",\"detail\":\"혼자 막혔던 부분을 친구와 노트를 맞춰 보며 배웠어요.\",\"done\":true,\"day\":1,\"week\":1},{\"id\":\"project-piece\",\"title\":\"내가 만든 과제의 한 조각\",\"detail\":\"실제 복습과 협업이 손에 잡히는 결과물로 남기 시작했어요.\",\"done\":true,\"day\":42,\"week\":6},{\"id\":\"first-exam\",\"title\":\"시험장에서 떠오른 배움\",\"detail\":\"함께 공부했던 내용으로 첫 시험을 풀어 냈어요.\",\"done\":true,\"day\":52,\"week\":8},{\"id\":\"wish-realized\",\"title\":\"한 학기만큼 자란 질문\",\"detail\":\"112일의 배움이 나만의 자신감으로 남았어요.\",\"done\":true,\"day\":112,\"week\":16}]}"
@@ -985,6 +990,11 @@
       "name": "friendship: progress and milestone dates remain valid throughout the semester",
       "pass": true,
       "detail": "{\"invalidProgress\":0,\"prematureDates\":0,\"unlocks\":[{\"id\":\"first-hello\",\"day\":1,\"week\":1,\"record\":{\"id\":\"first-hello\",\"title\":\"낯선 이름에 건넨 인사\",\"detail\":\"같은 캠퍼스의 누군가와 처음 인사를 나눴어요.\",\"done\":true,\"day\":1,\"week\":1}},{\"id\":\"shared-table\",\"day\":1,\"week\":1,\"record\":{\"id\":\"shared-table\",\"title\":\"함께 앉은 첫 식탁\",\"detail\":\"평범한 밥 한 끼가 함께 기억하는 장면이 됐어요.\",\"done\":true,\"day\":1,\"week\":1}},{\"id\":\"trusted-friend\",\"day\":19,\"week\":3,\"record\":{\"id\":\"trusted-friend\",\"title\":\"먼저 떠오르는 친구\",\"detail\":\"편하게 이야기하고 서로를 믿는 사람이 생겼어요.\",\"done\":true,\"day\":19,\"week\":3}},{\"id\":\"friend-circle\",\"day\":53,\"week\":8,\"record\":{\"id\":\"friend-circle\",\"title\":\"함께 웃을 우리\",\"detail\":\"각자 다른 두 사람과 오랜 시간을 쌓았어요.\",\"done\":true,\"day\":53,\"week\":8}}]}"
+    },
+    {
+      "name": "friendship: a first earned milestone appears within the first three actual days",
+      "pass": true,
+      "detail": "[{\"id\":\"first-hello\",\"day\":1,\"done\":true},{\"id\":\"shared-table\",\"day\":1,\"done\":true},{\"id\":\"trusted-friend\",\"day\":19,\"done\":true},{\"id\":\"friend-circle\",\"day\":53,\"done\":true},{\"id\":\"wish-realized\",\"day\":112,\"done\":true}]"
     },
     {
       "name": "friendship: every unlocked milestone is supported by actual activity, relationship or academic results",
@@ -1037,6 +1047,11 @@
       "detail": "{\"invalidProgress\":0,\"prematureDates\":0,\"unlocks\":[{\"id\":\"first-time\",\"day\":1,\"week\":1,\"record\":{\"id\":\"first-time\",\"title\":\"조금 더 알고 싶은 사람\",\"detail\":\"같은 장소에서 함께 시간을 보내며 서로를 알아봤어요.\",\"done\":true,\"day\":1,\"week\":1}},{\"id\":\"safe-trust\",\"day\":16,\"week\":3,\"record\":{\"id\":\"safe-trust\",\"title\":\"서두르지 않아도 괜찮아\",\"detail\":\"작은 약속을 지키며 솔직하게 말할 수 있는 사이가 되었어요.\",\"done\":true,\"day\":16,\"week\":3}},{\"id\":\"mutual-feelings\",\"day\":38,\"week\":6,\"record\":{\"id\":\"mutual-feelings\",\"title\":\"서로 확인한 마음\",\"detail\":\"충분히 알아간 뒤, 두 사람이 같은 마음에 동의했어요.\",\"done\":true,\"day\":38,\"week\":6}},{\"id\":\"three-dates\",\"day\":73,\"week\":11,\"record\":{\"id\":\"three-dates\",\"title\":\"우리만 아는 익숙한 길\",\"detail\":\"연인이 된 뒤에도 실제로 만나 세 번의 데이트를 쌓았어요.\",\"done\":true,\"day\":73,\"week\":11}}]}"
     },
     {
+      "name": "romance: a first earned milestone appears within the first three actual days",
+      "pass": true,
+      "detail": "[{\"id\":\"first-time\",\"day\":1,\"done\":true},{\"id\":\"safe-trust\",\"day\":16,\"done\":true},{\"id\":\"mutual-feelings\",\"day\":38,\"done\":true},{\"id\":\"three-dates\",\"day\":73,\"done\":true},{\"id\":\"wish-realized\",\"day\":112,\"done\":true}]"
+    },
+    {
       "name": "romance: every unlocked milestone is supported by actual activity, relationship or academic results",
       "pass": true,
       "detail": "{\"unsupportedMilestones\":[],\"milestones\":[{\"id\":\"first-time\",\"title\":\"조금 더 알고 싶은 사람\",\"detail\":\"같은 장소에서 함께 시간을 보내며 서로를 알아봤어요.\",\"done\":true,\"day\":1,\"week\":1},{\"id\":\"safe-trust\",\"title\":\"서두르지 않아도 괜찮아\",\"detail\":\"작은 약속을 지키며 솔직하게 말할 수 있는 사이가 되었어요.\",\"done\":true,\"day\":16,\"week\":3},{\"id\":\"mutual-feelings\",\"title\":\"서로 확인한 마음\",\"detail\":\"충분히 알아간 뒤, 두 사람이 같은 마음에 동의했어요.\",\"done\":true,\"day\":38,\"week\":6},{\"id\":\"three-dates\",\"title\":\"우리만 아는 익숙한 길\",\"detail\":\"연인이 된 뒤에도 실제로 만나 세 번의 데이트를 쌓았어요.\",\"done\":true,\"day\":73,\"week\":11},{\"id\":\"wish-realized\",\"title\":\"함께 걸은 한 계절\",\"detail\":\"서로의 속도를 존중하며 한 학기를 함께 걸었어요.\",\"done\":true,\"day\":112,\"week\":16}]}"
@@ -1087,6 +1102,11 @@
       "detail": "{\"invalidProgress\":0,\"prematureDates\":0,\"unlocks\":[{\"id\":\"first-shift\",\"day\":1,\"week\":1,\"record\":{\"id\":\"first-shift\",\"title\":\"처음 맡아 본 내 일\",\"detail\":\"학생복지관에서 맡은 일을 직접 해냈어요.\",\"done\":true,\"day\":1,\"week\":1}},{\"id\":\"own-money\",\"day\":3,\"week\":1,\"record\":{\"id\":\"own-money\",\"title\":\"내가 마련한 생활비\",\"detail\":\"실제 근무로 번 돈이 내 생활의 일부가 됐어요.\",\"done\":true,\"day\":3,\"week\":1}},{\"id\":\"standing-up\",\"day\":39,\"week\":6,\"record\":{\"id\":\"standing-up\",\"title\":\"조금은 익숙해진 어른의 하루\",\"detail\":\"근무와 회복을 스스로 챙기는 힘이 자랐어요.\",\"done\":true,\"day\":39,\"week\":6}},{\"id\":\"breathing-room\",\"day\":89,\"week\":13,\"record\":{\"id\":\"breathing-room\",\"title\":\"나를 돌볼 여유\",\"detail\":\"생활비와 자립의 힘을 함께 쌓아 조금 숨을 돌릴 수 있어요.\",\"done\":true,\"day\":89,\"week\":13}}]}"
     },
     {
+      "name": "independent: a first earned milestone appears within the first three actual days",
+      "pass": true,
+      "detail": "[{\"id\":\"first-shift\",\"day\":1,\"done\":true},{\"id\":\"own-money\",\"day\":3,\"done\":true},{\"id\":\"standing-up\",\"day\":39,\"done\":true},{\"id\":\"breathing-room\",\"day\":89,\"done\":true},{\"id\":\"wish-realized\",\"day\":112,\"done\":true}]"
+    },
+    {
       "name": "independent: every unlocked milestone is supported by actual activity, relationship or academic results",
       "pass": true,
       "detail": "{\"unsupportedMilestones\":[],\"milestones\":[{\"id\":\"first-shift\",\"title\":\"처음 맡아 본 내 일\",\"detail\":\"학생복지관에서 맡은 일을 직접 해냈어요.\",\"done\":true,\"day\":1,\"week\":1},{\"id\":\"own-money\",\"title\":\"내가 마련한 생활비\",\"detail\":\"실제 근무로 번 돈이 내 생활의 일부가 됐어요.\",\"done\":true,\"day\":3,\"week\":1},{\"id\":\"standing-up\",\"title\":\"조금은 익숙해진 어른의 하루\",\"detail\":\"근무와 회복을 스스로 챙기는 힘이 자랐어요.\",\"done\":true,\"day\":39,\"week\":6},{\"id\":\"breathing-room\",\"title\":\"나를 돌볼 여유\",\"detail\":\"생활비와 자립의 힘을 함께 쌓아 조금 숨을 돌릴 수 있어요.\",\"done\":true,\"day\":89,\"week\":13},{\"id\":\"wish-realized\",\"title\":\"내 힘으로 살아 본 학기\",\"detail\":\"열여섯 주의 작은 선택이 나를 지탱하는 힘이 되었어요.\",\"done\":true,\"day\":112,\"week\":16}]}"
@@ -1102,12 +1122,17 @@
       "detail": ""
     },
     {
-      "name": "moving: observation state and milestones roundtrip exactly",
+      "name": "decision: observation state and milestones roundtrip exactly",
       "pass": true,
       "detail": ""
     },
     {
-      "name": "moving: the restored student makes the same later plans and choices",
+      "name": "decision: the restored student makes the same later plans and choices",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "decision: the saved future comparison crosses a real automatic choice",
       "pass": true,
       "detail": ""
     },
@@ -1122,7 +1147,12 @@
       "detail": ""
     },
     {
-      "name": "Both an early-life and a relationship checkpoint were exercised",
+      "name": "relationship: the saved future comparison crosses a real automatic plan",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Both a midweek-decision and a relationship-review checkpoint were exercised",
       "pass": true,
       "detail": ""
     },
